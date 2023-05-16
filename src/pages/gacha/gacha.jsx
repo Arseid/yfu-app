@@ -4,9 +4,9 @@ const Gacha = () => {
     const [gachaResult, setGachaResult] = React.useState(null);
 
     const listTops = [{name:"Tshirt", probability:0.6}, {name:"Sweater", probability:0.3}, {name:"Turtleneck", probability:0.1}];
-    const listBots = ["Jean","Sweat Pants","Costume Pants"];
-    const listShoes = ["Airforce 1","Doc Martens","Stan Smith"];
-    const listAll = [listTops,listBots,listShoes];
+    // const listBots = ["Jean","Sweat Pants","Costume Pants"];
+    // const listShoes = ["Airforce 1","Doc Martens","Stan Smith"];
+    // const listAll = [listTops,listBots,listShoes];
 
     const letsGacha = (itemList) => {
         const chance = Math.random();

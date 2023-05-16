@@ -7,7 +7,7 @@ import {
 import Home from "./pages/home/home";
 import Gacha from "./pages/gacha/gacha";
 import Minigames from "./pages/minigames/minigames";
-import { AppBar, Box, Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import yfu_logo from "./assets/brand/svg/yfu-icon.svg";
 import YFUNavButton from "./components/YFUNavButton";
 import Signup from "./pages/signup/signup";
@@ -31,9 +31,21 @@ function App() {
     return (
         <UserContext.Provider value={user}>
             <BrowserRouter>
-                <Box className="App" sx={{ backgroundImage: 'linear-gradient(to bottom, #FEF, #FCE)' }}>
-                    <Stack direction={"column"} className="Home" style={{ height: '100vh', width: '100vw', overflow: 'hidden' }}>
-                        <Box sx={{ height: "100%", p: '1rem' }}>
+            <Stack
+                className="App"
+                direction={"column"}
+                sx={{
+                    height: '100vh',
+                    width: '100vw',
+                    backgroundImage: 'linear-gradient(to bottom, #FEF, #FCE)',
+                    overflow: 'hidden',
+                    boxSizing: 'border-box'
+                }}
+            >
+                    <Box sx={{
+                    height: "100%", p: '1rem', pb: '7rem',
+                    boxSizing: 'border-box'
+                }}>
                             {user ? (
                                 <Routes>
                                     <Route path='/' element={<Home />} />
@@ -47,33 +59,39 @@ function App() {
                                 </Routes>
                             )}
                         </Box>
-                        <AppBar sx={{
-                            boxShadow: 'none',
-                            p: "1rem",
-                            position: "relative",
-                            background: 'radial-gradient(58.28% 942.92% at 50% -526.89%, #FFFFFF 57.7%, transparent 100%)'
-                        }}>
-                            <Stack
-                                direction={"row"}
-                                alignItems={"center"}
-                                justifyContent={"center"}
-                            >
-                                <Link to="/" style={{ position: 'absolute', bottom: '0', height: '150px' }}>
-                                    <img src={yfu_logo} height={"100%"} alt="logo" />
-                                </Link>
+                <Box
+                    className="nav"
+                    sx={{
+                        p: "1rem",
+                        background: 'radial-gradient(58.28% 942.92% at 50% -526.89%, #FFFFFF 57.7%, transparent 100%)',
+                        position: 'fixed',
+                        bottom: 0,
+                        width: '100%',
+                        boxSizing: 'border-box'
+                    }}
+                >
+                    <Stack
+                        direction={"row"}
+                        alignItems={"center"}
+                        justifyContent={"center"}
+                    >
+                        <Link to="/" style={{ position: 'absolute', bottom: '0', height: '150px', left: 'auto', right: 'auto' }}>
+                            <img src={yfu_logo} height={"100%"} alt="Y" />
+                        </Link>
+                        <Stack direction={'row'} spacing={'2rem'} justifyContent={'space-around'}>
+                            <Link to='/'><YFUNavButton tooltip='Dressing' pathname={"/"} /></Link>
+                            <Link to='/gacha'><YFUNavButton tooltip='Gacha' pathname={"/gacha"} /></Link>
 
-                                <Stack direction={'row'} spacing={'2rem'} justifyContent={'space-around'}>
-                                    <Link to='/'><YFUNavButton tooltip='Dressing' pathname={"/"} /></Link>
-                                    <Link to='/gacha'><YFUNavButton tooltip='Gacha' pathname={"/gacha"} /></Link>
-                                    <div style={{ width: '150px' }} />
-                                    <Link to='/minigames'><YFUNavButton tooltip='Mini Games' pathname={"/minigames"} /></Link>
-                                    <YFUNavButton tooltip='Option' />
-                                </Stack>
-                            </Stack>
-                        </AppBar>
+                            <div style={{ width: '150px' }}>
+
+                            </div>
+                            <Link to='/minigames'><YFUNavButton tooltip='Mini Games' pathname={"/minigames"} /></Link>
+                            <YFUNavButton tooltip='Option' />
+                        </Stack>
                     </Stack>
                 </Box>
-            </BrowserRouter>
+            </Stack>
+        </BrowserRouter>
         </UserContext.Provider>
     );
 }
