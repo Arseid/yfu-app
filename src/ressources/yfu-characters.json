@@ -1,0 +1,25 @@
+{
+    "yfus": [
+        {
+            "prenom": "Lesley",
+            "nom": "Flakes",
+            "body-type": 1,
+            "phrase": "Tu sais, si tu réfléchis trop, tu va finir par ne rien faire. Lance-toi, tu verras bien !",
+            "descritpion": "coming soon"
+        },
+        {
+            "prenom": "Tiva",
+            "nom": "Matta",
+            "body-type": 1,
+            "phrase": "Alors, quelle sera notre prochaine destination ?",
+            "descritpion": "coming soon"
+        },
+        {
+            "prenom": "Maria",
+            "nom": "Belle",
+            "body-type": 2,
+            "phrase": "Hâte de recevoir ma nouvelle robe !",
+            "descritpion": "coming soon"
+        }
+    ]
+}

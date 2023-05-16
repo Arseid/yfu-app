@@ -1,0 +1,140 @@
+{
+    "vetements": {
+        "chapeaux": [
+            {
+                "nom": "Chapeau de paille",
+                "url": "",
+                "chance":""
+            },
+            {
+                "nom": "Casque chat",
+                "url": "",
+                "chance":""
+            },
+            {
+                "nom": "Haut de forme",
+                "url": "",
+                "chance":""
+            }
+        ],
+        "lunettes": [
+            {
+                "nom": "Lunettes de Thug",
+                "url": "",
+                "chance":""
+            },
+            {
+                "nom": "Grandes lunettes rondes",
+                "url": "",
+                "chance":""
+            },
+            {
+                "nom": "Visière",
+                "url": "",
+                "chance":""
+            }
+        ],
+        "hauts": [
+            {
+                "nom": "Chemise à manche courte",
+                "url": "",
+                "chance":""
+            },
+            {
+                "nom": "T-shirt Love",
+                "url": "",
+                "chance":""
+            },
+            {
+                "nom": "Débardeur",
+                "url": "",
+                "chance":""
+            }
+        ],
+        "vestes": [
+            {
+                "nom": "Blouse blanche",
+                "url": "",
+                "chance":""
+            },
+            {
+                "nom": "Blazer",
+                "url": "",
+                "chance":""
+            },
+            {
+                "nom": "Sweat-shirt à capuche",
+                "url": "",
+                "chance":""
+            }
+        ],
+        "bas": [
+            {
+                "nom": "Pantalon chino",
+                "url": "",
+                "chance":""
+            },
+            {
+                "nom": "Jupe",
+                "url": "",
+                "chance":""
+            },
+            {
+                "nom": "Short",
+                "url": "",
+                "chance":""
+            }
+        ],
+        "bas dessous": [
+            {
+                "nom": "Collants",
+                "url": "",
+                "chance":""
+            },
+            {
+                "nom": "Chaussettes hautes",
+                "url": "",
+                "chance":""
+            },
+            {
+                "nom": "Chaussettes à bande",
+                "url": "",
+                "chance":""
+            }
+        ],
+        "chaussures": [
+            {
+                "nom": "Ballerines",
+                "url": "",
+                "chance":""
+            },
+            {
+                "nom": "Bottes gothiques",
+                "url": "",
+                "chance":""
+            },
+            {
+                "nom": "Tongues",
+                "url": "",
+                "chance":""
+            }
+        ],
+        "robes": [
+            {
+                "nom": "Quipao",
+                "url": "",
+                "chance":""
+            },
+            {
+                "nom": "Robe à froufrous",
+                "url": "",
+                "chance":""
+            },
+            {
+                "nom": "Robe longue",
+                "url": "",
+                "chance":""
+            }
+        ]
+    }
+}

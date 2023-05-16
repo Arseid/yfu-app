@@ -1,6 +1,4 @@
 import React from 'react';
-import './gacha.css';
-import bg_gacha from '../../ressources/bg_gacha.png';
 
 const Gacha = () => {
     const [gachaResult, setGachaResult] = React.useState(null);
@@ -26,7 +24,7 @@ const Gacha = () => {
         setGachaResult(item);
     }
 
-    return <div className='Gacha' style={{backgroundImage: `url(${bg_gacha})`}}>
+    return <div className='Gacha'>
         <h1>Gacha</h1>
         <div style={{display: 'flex', alignSelf: 'center', justifyContent: 'center'}}>
             <button onClick={()=>roll1time()}>Let's roll the dice shall we</button>
