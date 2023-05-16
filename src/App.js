@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
     BrowserRouter, Link,
     Route,
@@ -12,21 +12,42 @@ import yfu_logo from "./assets/brand/svg/yfu-icon.svg";
 import YFUNavButton from "./components/YFUNavButton";
 import Signup from "./pages/signup/signup";
 import Login from "./pages/login/login";
+import { auth } from './config/firebase-config';
+import { onAuthStateChanged } from 'firebase/auth';
+import UserContext from './context/UserContext';
 
 function App() {
 
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+
+        return () => unsubscribe();
+    }, []);
+
     return (
+        <UserContext.Provider value={user}>
         <BrowserRouter>
             <Box className="App" sx={{ backgroundImage: 'linear-gradient(to bottom, #FEF, #FCE)' }}>
                 <Stack direction={"column"} className="Home" style={{ height: '100vh', width: '100vw', overflow: 'hidden' }}>
                     <Box sx={{ height: "100%" }}>
-                        <Routes>
-                            <Route path='/' element={<Home />} />
-                            <Route path='/minigames' element={<Minigames />} />
-                            <Route path='/gacha' element={<Gacha />} />
-                            <Route path='/login' element={<Login />} />
-                            <Route path='/signup' element={<Signup />} />
-                        </Routes>
+                        {user ? (
+                            <Routes>
+                                <Route path='/' element={<Home />} />
+                                <Route path='/minigames' element={<Minigames />} />
+                                <Route path='/gacha' element={<Gacha />} />
+                                <Route path='/login' element={<Login />} />
+                                <Route path='/signup' element={<Signup />} />
+                            </Routes>
+                        ) : (
+                            <Routes>
+                                <Route path='/' element={<Login />} />
+                                <Route path='/signup' element={<Signup />} />
+                            </Routes>
+                        )}
                     </Box>
                     <AppBar sx={{
                         boxShadow: 'none',
@@ -54,6 +75,7 @@ function App() {
                 </Stack>
             </Box>
         </BrowserRouter>
+        </UserContext.Provider>
     );
 }
 
