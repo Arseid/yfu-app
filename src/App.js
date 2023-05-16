@@ -10,6 +10,8 @@ import Minigames from "./pages/minigames/minigames";
 import { AppBar, Box, Stack } from "@mui/material";
 import yfu_logo from "./assets/brand/svg/yfu-icon.svg";
 import YFUNavButton from "./components/YFUNavButton";
+import Signup from "./pages/signup/signup";
+import Login from "./pages/login/login";
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
                             <Route path='/' element={<Home />} />
                             <Route path='/minigames' element={<Minigames />} />
                             <Route path='/gacha' element={<Gacha />} />
+                            <Route path='/login' element={<Login />} />
+                            <Route path='/signup' element={<Signup />} />
                         </Routes>
                     </Box>
                     <AppBar sx={{
