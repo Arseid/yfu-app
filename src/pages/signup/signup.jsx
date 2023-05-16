@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { auth } from '../../config/firebase-config';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -19,6 +21,7 @@ const Signup = () => {
                 username: username,
             });
             console.log('User created', response.data);
+            navigate('/');
         } catch (error) {
             console.error('Error signing up', error);
         }
@@ -49,6 +52,7 @@ const Signup = () => {
                     required
                 />
                 <button type='submit'>Sign Up</button>
+                <Link to='/'>Already have an account? Log in</Link>
             </form>
         </div>
     );

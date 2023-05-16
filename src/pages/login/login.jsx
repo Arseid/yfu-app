@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../config/firebase-config';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -35,6 +36,7 @@ const Login = () => {
                     required
                 />
                 <button type='submit'>Log In</button>
+                <Link to='/signup'>Create an account</Link>
             </form>
         </div>
     );
