@@ -9,7 +9,7 @@ import Gacha from "./pages/gacha/gacha";
 import Minigames from "./pages/minigames/minigames";
 import { Box, Stack } from "@mui/material";
 import yfu_logo from "./assets/brand/svg/yfu-icon.svg";
-import YFUNavButton from "./components/YFUNavButton";
+import YFUNavButton from "./components/buttons/YFUNavButton";
 import Signup from "./pages/signup/signup";
 import Login from "./pages/login/login";
 import { auth } from './config/firebase-config';
