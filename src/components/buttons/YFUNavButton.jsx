@@ -53,7 +53,7 @@ const YFUNavButton = ({ pathname = undefined, tooltip = undefined }) => {
           width:"4rem",
           p: "0.75rem",
           "&:hover": {
-            boxShadow: "0 0 0 0.25rem white",
+            boxShadow: "0 0 0 0.5rem white",
           },
         }}
       >

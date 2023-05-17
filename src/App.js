@@ -86,7 +86,7 @@ function App() {
 
                             </div>
                             <Link to='/minigames'><YFUNavButton tooltip='Mini Games' pathname={"/minigames"} /></Link>
-                            <YFUNavButton tooltip='Option' />
+                            <YFUNavButton tooltip='Options' />
                         </Stack>
                     </Stack>
                 </Box>
