@@ -1,7 +1,8 @@
 import { Box, Button, Grid, NativeSelect, Paper, Stack } from "@mui/material";
 import React from "react";
-import Character from "../../components/sprites/characters/Character";
 import CharacterHeadButton from "../../components/sprites/characters/CharacterHeadButton";
+import DressingView from "../../components/sprites/DressingView";
+import { useState } from "react";
 
 const clotheTypes = [
   "hats",
@@ -25,7 +26,24 @@ const clotheTypesSingular = [
   "dress",
 ];
 
+const faces = ["front", "right", "back", "left"];
+
+function getNextFace(face) {
+  const faceIndex = faces.indexOf(face);
+  if (faceIndex === 3) return faces[0];
+  else return faces[faceIndex + 1];
+}
+
+function getPreviousFace(face) {
+  const faceIndex = faces.indexOf(face);
+  if (faceIndex === 0) return faces[3];
+  else return faces[faceIndex - 1];
+}
+
 const Home = () => {
+  const [currentCharacter, setCurrentCharacter] = useState("lesley");
+  const [currentFace, setCurrentFace] = useState("front");
+
   return (
     <Stack alignItems={"center"} sx={{ height: "100%", overflow: "hidden" }}>
       <Paper
@@ -43,8 +61,14 @@ const Home = () => {
           sx={{ height: "100%" }}
           justifyContent={"center"}
         >
-          <CharacterHeadButton name={"lesley"} />
-          <CharacterHeadButton name={"tiva"} />
+          <CharacterHeadButton
+            name={"lesley"}
+            onClick={() => setCurrentCharacter("lesley")}
+          />
+          <CharacterHeadButton
+            name={"tiva"}
+            onClick={() => setCurrentCharacter("tiva")}
+          />
         </Stack>
       </Paper>
 
@@ -188,7 +212,17 @@ const Home = () => {
               px: "1rem",
             }}
           >
-            <Character name={"lesley"} face={"right"} />
+            <Box
+              sx={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <DressingView characterName={currentCharacter} face={currentFace} />
+            </Box>
             <Stack
               direction={"row"}
               alignItems={"center"}
@@ -199,6 +233,7 @@ const Home = () => {
             >
               <Button
                 variant="contained"
+                onClick={() => setCurrentFace(getPreviousFace(currentFace))}
                 sx={{
                   bgcolor: "#F7F",
                   bottom: "5rem",
@@ -209,6 +244,7 @@ const Home = () => {
               </Button>
               <Button
                 variant="contained"
+                onClick={() => setCurrentFace(getNextFace(currentFace))}
                 sx={{
                   bgcolor: "#F7F",
                   bottom: "5rem",
