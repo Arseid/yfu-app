@@ -1,137 +1,137 @@
 {
-    "vetements": {
-        "chapeaux": [
+    "clothes": {
+        "hats": [
             {
-                "nom": "Chapeau de paille",
+                "name": "Chapeau de paille",
                 "url": "",
                 "chance":""
             },
             {
-                "nom": "Casque chat",
+                "name": "Casque chat",
                 "url": "",
                 "chance":""
             },
             {
-                "nom": "Haut de forme",
+                "name": "Haut de forme",
                 "url": "",
                 "chance":""
             }
         ],
-        "lunettes": [
+        "glasses": [
             {
-                "nom": "Lunettes de Thug",
+                "name": "Lunettes de Thug",
                 "url": "",
                 "chance":""
             },
             {
-                "nom": "Grandes lunettes rondes",
+                "name": "Grandes lunettes rondes",
                 "url": "",
                 "chance":""
             },
             {
-                "nom": "Visière",
+                "name": "Visière",
                 "url": "",
                 "chance":""
             }
         ],
-        "hauts": [
+        "tops": [
             {
-                "nom": "Chemise à manche courte",
+                "name": "Chemise à manche courte",
                 "url": "",
                 "chance":""
             },
             {
-                "nom": "T-shirt Love",
+                "name": "T-shirt Love",
                 "url": "",
                 "chance":""
             },
             {
-                "nom": "Débardeur",
+                "name": "Débardeur",
                 "url": "",
                 "chance":""
             }
         ],
-        "vestes": [
+        "overcoats": [
             {
-                "nom": "Blouse blanche",
+                "name": "Blouse blanche",
                 "url": "",
                 "chance":""
             },
             {
-                "nom": "Blazer",
+                "name": "Blazer",
                 "url": "",
                 "chance":""
             },
             {
-                "nom": "Sweat-shirt à capuche",
+                "name": "Sweat-shirt à capuche",
                 "url": "",
                 "chance":""
             }
         ],
-        "bas": [
+        "bottoms": [
             {
-                "nom": "Pantalon chino",
+                "name": "Pantalon chino",
                 "url": "",
                 "chance":""
             },
             {
-                "nom": "Jupe",
+                "name": "Jupe",
                 "url": "",
                 "chance":""
             },
             {
-                "nom": "Short",
+                "name": "Short",
                 "url": "",
                 "chance":""
             }
         ],
-        "bas dessous": [
+        "hosiery": [
             {
-                "nom": "Collants",
+                "name": "Collants",
                 "url": "",
                 "chance":""
             },
             {
-                "nom": "Chaussettes hautes",
+                "name": "Chaussettes hautes",
                 "url": "",
                 "chance":""
             },
             {
-                "nom": "Chaussettes à bande",
+                "name": "Chaussettes à bande",
                 "url": "",
                 "chance":""
             }
         ],
-        "chaussures": [
+        "shoes": [
             {
-                "nom": "Ballerines",
+                "name": "Ballerines",
                 "url": "",
                 "chance":""
             },
             {
-                "nom": "Bottes gothiques",
+                "name": "Bottes gothiques",
                 "url": "",
                 "chance":""
             },
             {
-                "nom": "Tongues",
+                "name": "Tongues",
                 "url": "",
                 "chance":""
             }
         ],
-        "robes": [
+        "dresses": [
             {
-                "nom": "Quipao",
+                "name": "Quipao",
                 "url": "",
                 "chance":""
             },
             {
-                "nom": "Robe à froufrous",
+                "name": "Robe à froufrous",
                 "url": "",
                 "chance":""
             },
             {
-                "nom": "Robe longue",
+                "name": "Robe longue",
                 "url": "",
                 "chance":""
             }

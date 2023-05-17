@@ -8,7 +8,6 @@ const YFUButton = ({ variant = "contained", children }) => {
       sx={{
         fontFamily: "'Baloo 2', cursive;",
         fontSize: "16px",
-        
       }}
     >
       {children}
