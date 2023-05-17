@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import React from "react";
 
-const GenericItemImage = ({ src }) => {
+const SpriteImage = ({ src }) => {
   return (
     <Box
       sx={{
@@ -33,4 +33,4 @@ const GenericItemImage = ({ src }) => {
   );
 };
 
-export default GenericItemImage;
+export default SpriteImage;

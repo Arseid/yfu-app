@@ -1,7 +1,7 @@
 import { Box, Button, Grid, NativeSelect, Paper, Stack } from "@mui/material";
 import React from "react";
-import Character from "../../components/characters/Character";
-import CharacterHeadButton from "./../../components/characters/CharacterHeadButton";
+import Character from "../../components/sprites/characters/Character";
+import CharacterHeadButton from "../../components/sprites/characters/CharacterHeadButton";
 
 const clotheTypes = [
   "hats",
