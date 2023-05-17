@@ -51,6 +51,7 @@ function App() {
                                     <Route path='/' element={<Home />} />
                                     <Route path='/minigames' element={<Minigames />} />
                                     <Route path='/gacha' element={<Gacha />} />
+                                    <Route path='/signup' element={<Signup />} />
                                 </Routes>
                             ) : (
                                 <Routes>
