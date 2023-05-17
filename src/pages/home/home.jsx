@@ -110,12 +110,9 @@ const Home = () => {
                   sx={{ height: "100%", overflow: "auto" }}
                 >
                   {Array.from(clotheTypesSingular).map((type) => (
-                    <Box>
+                    <Box key={type}>
                       {type}
-                      <Paper
-                        key={type}
-                        sx={{ width: "100px", height: "100px" }}
-                      ></Paper>
+                      <Paper sx={{ width: "100px", height: "100px" }}></Paper>
                     </Box>
                   ))}
                 </Stack>
@@ -191,7 +188,7 @@ const Home = () => {
               px: "1rem",
             }}
           >
-            <Character name="lesley" />
+            <Character name={"lesley"} face={"right"} />
             <Stack
               direction={"row"}
               alignItems={"center"}

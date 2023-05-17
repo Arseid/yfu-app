@@ -1,15 +1,12 @@
 import React from "react";
-import Lesley from "./Lesley";
+import GenericItemImage from "./GenericItemImage";
 
 const Character = ({ name, face }) => {
-  switch (name) {
-    case "lesley":
-      return <Lesley face={face} />;
-    case "tiva":
-      return <>Tiva n'existe pas encore</>;
-    default:
-      return <>Nom de personnage non valide</>;
-  }
+  return (
+    <GenericItemImage
+      src={require(`../../assets/characters/${name}/full/${face}.png`)}
+    />
+  );
 };
 
 export default Character;
