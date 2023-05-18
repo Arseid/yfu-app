@@ -58,7 +58,14 @@ function App() {
                     <Box sx={{ position: 'absolute', bottom: "1rem", left: "1rem", zIndex: 2 }}>
                         <audio ref={audioRef} src={music} loop />
                         <Tooltip title="Music">
-                            <IconButton onClick={handleTogglePlay} sx={{ color: '#FFF', bgcolor: '#F7F', '&:hover': { bgcolor: '#F7F', boxShadow: '0 0 0 0.5rem #FFF' } }}>
+                            <IconButton onClick={handleTogglePlay} sx={{
+                                color: '#FFF',
+                                bgcolor: '#F7F',
+                                '&:hover': {
+                                    bgcolor: '#F7F',
+                                    boxShadow: '0 0 0 0.5rem #FFF'
+                                }
+                            }}>
                                 {isPlaying ? <VolumeUp /> : <VolumeOff />}
                             </IconButton>
                         </Tooltip>
