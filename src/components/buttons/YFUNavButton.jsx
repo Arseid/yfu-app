@@ -49,8 +49,8 @@ const YFUNavButton = ({ pathname = undefined, tooltip = undefined }) => {
         sx={{
           background: `radial-gradient(362.07% 362.07% at 68.71% -130.74%, rgba(255, 134, 177, 0.74) 44.61%, rgba(255, 78, 245, 0.74) 55.34%, rgba(109, 42, 193, 0.74) 66.93%)`,
           borderRadius: "1rem 1rem 1rem 1rem",
-          height:"4rem",
-          width:"4rem",
+          height: "4rem",
+          width: "4rem",
           p: "0.75rem",
           "&:hover": {
             boxShadow: "0 0 0 0.5rem white",

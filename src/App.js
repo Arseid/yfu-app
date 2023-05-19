@@ -7,7 +7,7 @@ import {
 import Home from "./pages/home/home";
 import Gacha from "./pages/gacha/gacha";
 import Minigames from "./pages/minigames/minigames";
-import { Box, Stack } from "@mui/material";
+import { Box, IconButton, Stack, Tooltip } from "@mui/material";
 import yfu_logo from "./assets/brand/svg/yfu-icon.svg";
 import YFUNavButton from "./components/buttons/YFUNavButton";
 import Signup from "./pages/signup/signup";
@@ -15,10 +15,14 @@ import Login from "./pages/login/login";
 import { auth } from './config/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 import UserContext from './context/UserContext';
+import music from "./assets/Kawaii-BadSnacks.mp3";
+import { VolumeOff, VolumeUp } from "@mui/icons-material";
 
 function App() {
 
     const [user, setUser] = useState(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const audioRef = React.createRef();
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -28,20 +32,45 @@ function App() {
         return () => unsubscribe();
     }, []);
 
+    const handleTogglePlay = () => {
+        const audioElement = audioRef.current;
+        if (isPlaying) {
+            audioElement.pause();
+        } else {
+            audioElement.play();
+        }
+        setIsPlaying(!isPlaying);
+    };
+
     return (
         <UserContext.Provider value={user}>
             <BrowserRouter>
-            <Stack
-                className="App"
-                direction={"column"}
-                sx={{
-                    height: '100vh',
-                    width: '100vw',
-                    backgroundImage: 'linear-gradient(to bottom, #FEF, #FCE)',
-                    overflow: 'hidden',
-                    boxSizing: 'border-box'
-                }}
-            >
+                <Stack
+                    className="App"
+                    direction={"column"}
+                    sx={{
+                        height: '100vh',
+                        width: '100vw',
+                        backgroundImage: 'linear-gradient(to bottom, #FEF, #FCE)',
+                        overflow: 'hidden',
+                        boxSizing: 'border-box'
+                    }}
+                >
+                    <Box sx={{ position: 'absolute', bottom: "1rem", left: "1rem", zIndex: 2 }}>
+                        <audio ref={audioRef} src={music} loop />
+                        <Tooltip title="Music">
+                            <IconButton onClick={handleTogglePlay} sx={{
+                                color: '#FFF',
+                                bgcolor: '#F7F',
+                                '&:hover': {
+                                    bgcolor: '#F7F',
+                                    boxShadow: '0 0 0 0.5rem #FFF'
+                                }
+                            }}>
+                                {isPlaying ? <VolumeUp /> : <VolumeOff />}
+                            </IconButton>
+                        </Tooltip>
+                    </Box>
                     <Box sx={{
                     height: "100%", p: '1rem', pb: '7rem',
                     boxSizing: 'border-box'
