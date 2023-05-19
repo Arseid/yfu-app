@@ -1,140 +1,174 @@
-{
-    "clothes": {
-        "hats": [
-            {
-                "name": "Chapeau de paille",
-                "url": "",
-                "chance":""
-            },
-            {
-                "name": "Casque chat",
-                "url": "",
-                "chance":""
-            },
-            {
-                "name": "Haut de forme",
-                "url": "",
-                "chance":""
-            }
-        ],
-        "glasses": [
-            {
-                "name": "Lunettes de Thug",
-                "url": "",
-                "chance":""
-            },
-            {
-                "name": "Grandes lunettes rondes",
-                "url": "",
-                "chance":""
-            },
-            {
-                "name": "Visière",
-                "url": "",
-                "chance":""
-            }
-        ],
-        "tops": [
-            {
-                "name": "Chemise à manche courte",
-                "url": "",
-                "chance":""
-            },
-            {
-                "name": "T-shirt Love",
-                "url": "",
-                "chance":""
-            },
-            {
-                "name": "Débardeur",
-                "url": "",
-                "chance":""
-            }
-        ],
-        "overcoats": [
-            {
-                "name": "Blouse blanche",
-                "url": "",
-                "chance":""
-            },
-            {
-                "name": "Blazer",
-                "url": "",
-                "chance":""
-            },
-            {
-                "name": "Sweat-shirt à capuche",
-                "url": "",
-                "chance":""
-            }
-        ],
-        "bottoms": [
-            {
-                "name": "Pantalon chino",
-                "url": "",
-                "chance":""
-            },
-            {
-                "name": "Jupe",
-                "url": "",
-                "chance":""
-            },
-            {
-                "name": "Short",
-                "url": "",
-                "chance":""
-            }
-        ],
-        "hosiery": [
-            {
-                "name": "Collants",
-                "url": "",
-                "chance":""
-            },
-            {
-                "name": "Chaussettes hautes",
-                "url": "",
-                "chance":""
-            },
-            {
-                "name": "Chaussettes à bande",
-                "url": "",
-                "chance":""
-            }
-        ],
-        "shoes": [
-            {
-                "name": "Ballerines",
-                "url": "",
-                "chance":""
-            },
-            {
-                "name": "Bottes gothiques",
-                "url": "",
-                "chance":""
-            },
-            {
-                "name": "Tongues",
-                "url": "",
-                "chance":""
-            }
-        ],
-        "dresses": [
-            {
-                "name": "Quipao",
-                "url": "",
-                "chance":""
-            },
-            {
-                "name": "Robe à froufrous",
-                "url": "",
-                "chance":""
-            },
-            {
-                "name": "Robe longue",
-                "url": "",
-                "chance":""
-            }
-        ]
+[
+    {
+        "id": "0WwuUY6fqQWaPjFFh4ge",
+        "type": "hosiery",
+        "right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhosiery%2Ftights%2Fright.png?alt=media&token=5a55bb2a-b877-4ad3-8b18-6664c6ca7079",
+        "left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhosiery%2Ftights%2Fleft.png?alt=media&token=c864ab2b-3839-462f-ba43-235989970c9d",
+        "back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhosiery%2Ftights%2Fback.png?alt=media&token=aee06d8c-6eb8-4f4a-bbd8-7c3f329e2380",
+        "name": "tights",
+        "front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhosiery%2Ftights%2Ffront.png?alt=media&token=d8667ae1-3e2f-48c1-a9e0-ed8156a6898a"
+    },
+    {
+        "id": "DbZnsTTGiODqZkbE3R5B",
+        "right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fshoes%2Fballerinas%2Fright.png?alt=media&token=aa21e825-f922-417d-b01a-4c44dd05ead3",
+        "back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fshoes%2Fballerinas%2Fback.png?alt=media&token=795d4b76-58a6-4c87-b043-6b2839b290c7",
+        "front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fshoes%2Fballerinas%2Ffront.png?alt=media&token=d9a598fe-409b-48a7-b3e2-de01ce292d50",
+        "name": "ballerinas",
+        "left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fshoes%2Fballerinas%2Fleft.png?alt=media&token=eef66d98-4f8a-46ed-943a-57f6814f5726",
+        "type": "shoes"
+    },
+    {
+        "id": "Dhxy3Dp52vXoMLNiDQpR",
+        "lef-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fglasses%2Fthug_glasses%2Fleft.png?alt=media&token=1377205e-9469-4c6b-b783-d53545bf59d2",
+        "back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fglasses%2Fthug_glasses%2Fback.png?alt=media&token=a3645dd9-5a98-4e25-b950-e86ddee56362",
+        "name": "thug_glasses",
+        "front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fglasses%2Fthug_glasses%2Ffront.png?alt=media&token=a1044e17-10a0-4852-9eb3-d5832d31d2c9",
+        "type": "glasses",
+        "right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fglasses%2Fthug_glasses%2Fright.png?alt=media&token=bdfd38db-17d1-437c-b9f2-22f11239ab84"
+    },
+    {
+        "id": "FBQrbLiQAaOllK49mE3J",
+        "left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhats%2Fcat_headphones%2Fleft.png?alt=media&token=a79e4e91-a00d-4fd1-9718-90fed76c5868",
+        "right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhats%2Fcat_headphones%2Fright.png?alt=media&token=52757816-9512-4bf5-aec4-5f43c4839158",
+        "back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhats%2Fcat_headphones%2Fback.png?alt=media&token=e19eff6a-b25c-4f97-8fe8-6b900d4a5673",
+        "name": "cat_headphones",
+        "type": "hats",
+        "front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhats%2Fcat_headphones%2Ffront.png?alt=media&token=049c0e70-3eff-48be-a028-58304b9ca573"
+    },
+    {
+        "id": "O0godSxGqCswITORf6ye",
+        "left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fdresses%2Fqipao%2Fleft.png?alt=media&token=721ffc92-fb09-458f-800b-add13dae58ed",
+        "name": "qipao",
+        "front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fdresses%2Fqipao%2Ffront.png?alt=media&token=0a76663e-6bfd-4b47-8f12-64979c0e34ab",
+        "back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fdresses%2Fqipao%2Fback.png?alt=media&token=88d61a5c-9834-4256-8459-ae5bbbe98370",
+        "type": "dresses",
+        "right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fdresses%2Fqipao%2Fright.png?alt=media&token=bd76cd44-eb8c-4a5e-be43-2d62ed876c74"
+    },
+    {
+        "id": "OCuyKM9ESiW1iQ98uRPZ",
+        "left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fovercoats%2Fblazer%2Fleft.png?alt=media&token=b13734f4-9918-47f5-9f05-b6b2b5bf8741",
+        "name": "blazer",
+        "back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fovercoats%2Fblazer%2Fback.png?alt=media&token=65ad38c4-0cbe-468c-84b9-9898961b5d5b",
+        "type": "overcoats",
+        "front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fovercoats%2Fblazer%2Ffront.png?alt=media&token=68730d95-2356-4d30-8793-c3d6c0fca2a7",
+        "right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fovercoats%2Fblazer%2Fright.png?alt=media&token=5129b336-4391-4119-8e7a-0b1442233cd0"
+    },
+    {
+        "id": "RTJdhJTgOhegZ7K9VLBa",
+        "back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Ftops%2Fwhite_t_shirt%2Fback.png?alt=media&token=0c62aaec-023f-407c-a1b5-9475d2a790fd",
+        "type": "tops",
+        "right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Ftops%2Fwhite_t_shirt%2Fright.png?alt=media&token=8a06946b-e435-45a1-94e3-05c6fbd9f3c5",
+        "name": "white_t_shirt",
+        "left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Ftops%2Fwhite_t_shirt%2Fleft.png?alt=media&token=3930b7b3-fb65-4e3a-937c-960e1dd2b310",
+        "front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Ftops%2Fwhite_t_shirt%2Ffront.png?alt=media&token=2b291955-e468-4086-b063-742ff2b26526"
+    },
+    {
+        "id": "TcdTHPwQ2uQBf7ZHdwqP",
+        "type": "bottoms",
+        "back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fbottoms%2Fskirt%2Fback.png?alt=media&token=f8d24c7c-9f12-41b4-a291-f6c65d22a872",
+        "left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fbottoms%2Fskirt%2Fleft.png?alt=media&token=d48a8239-8775-4387-a22a-68cfe336aee6",
+        "front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fbottoms%2Fskirt%2Ffront.png?alt=media&token=0c85fcbc-3ae0-47c3-b164-630bcc18a34e",
+        "right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fbottoms%2Fskirt%2Fright.png?alt=media&token=7099db6f-b0a8-4c6a-a1cf-d07b4b769eac",
+        "name": "skirt"
+    },
+    {
+        "id": "Wyq9rdqXYqUXjgTWk5Fh",
+        "name": "flip_flops",
+        "back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fshoes%2Fflip_flops%2Fback.png?alt=media&token=d4496d36-7767-4d0a-a799-87122e1600e5",
+        "front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fshoes%2Fflip_flops%2Ffront.png?alt=media&token=b6aa8f42-a443-42fd-bff0-e81d651f09b2",
+        "right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fshoes%2Fflip_flops%2Fright.png?alt=media&token=05ce86be-bb95-4e7d-8c23-a17519b07d14",
+        "left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fshoes%2Fflip_flops%2Fleft.png?alt=media&token=13c5909b-262c-46e3-9c1b-8b27f451de74",
+        "type": "shoes"
+    },
+    {
+        "id": "Xgvb5mlDDUaR42oPEcU9",
+        "type": "tops",
+        "back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Ftops%2Ft_shirt_love%2Fback.png?alt=media&token=cabd10a6-bb1e-4be1-9010-be8b0b171d2c",
+        "front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Ftops%2Ft_shirt_love%2Ffront.png?alt=media&token=b9602167-22cb-4c50-91ec-19450e0941ea",
+        "name": "t_shirt_love",
+        "left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Ftops%2Ft_shirt_love%2Fleft.png?alt=media&token=b5f7ce9b-4079-4095-ab32-179612607c3b",
+        "right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Ftops%2Ft_shirt_love%2Fright.png?alt=media&token=2ba5811a-250e-4896-bbff-9e653a50c7fd"
+    },
+    {
+        "id": "YKmUw7UuTlV7tBHBOF4R",
+        "name": "strawhat",
+        "right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhats%2Fstrawhat%2Fright.png?alt=media&token=c2015508-d5a3-4718-92e1-cfe4a583548e",
+        "front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhats%2Fstrawhat%2Ffront.png?alt=media&token=ef62c63a-b1d1-4884-aeec-26b958440309",
+        "type": "hats",
+        "left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhats%2Fstrawhat%2Fleft.png?alt=media&token=91271221-2406-4fa8-94c4-1bb1b34ba762",
+        "back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhats%2Fstrawhat%2Fback.png?alt=media&token=780593ac-7795-4304-891f-37b870ecfe64"
+    },
+    {
+        "id": "YlSztDiTL9wTxWQpzjSy",
+        "right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fshoes%2Fgoth_boots%2Fright.png?alt=media&token=6a1bb7dc-12ab-4880-884c-823ceb8cd257",
+        "front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fshoes%2Fgoth_boots%2Ffront.png?alt=media&token=c6d63b7e-b8d9-46e1-b5da-fd6bbdb11a53",
+        "left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fshoes%2Fgoth_boots%2Fleft.png?alt=media&token=7a2880f6-8eaa-4844-980e-97edc8b1ed22",
+        "type": "shoes",
+        "back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fshoes%2Fgoth_boots%2Fback.png?alt=media&token=4d219ba4-a034-4380-bce5-1cc0c364f6c2",
+        "name": "goth_boots"
+    },
+    {
+        "id": "YmKSvVrFdgyio51gW3fy",
+        "left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhats%2Ftop_hat%2Fleft.png?alt=media&token=d6155eb8-422b-4576-a63e-874ba66a4d54",
+        "back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhats%2Ftop_hat%2Fback.png?alt=media&token=59497a7c-19a5-428a-9300-bb053d3ada4c",
+        "type": "hats",
+        "right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhats%2Ftop_hat%2Fright.png?alt=media&token=3a82f063-8352-4fb4-8cd5-d1e3736ef938",
+        "name": "top_hat",
+        "front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhats%2Ftop_hat%2Ffront.png?alt=media&token=8131e1ec-1939-454a-a47c-12dcd5e32736"
+    },
+    {
+        "id": "gnIBGlBmuOF6h15ujbte",
+        "name": "socks",
+        "back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhosiery%2Fsocks%2Fback.png?alt=media&token=ff1bde30-076e-4454-9e55-daaf069bef2b",
+        "front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhosiery%2Fsocks%2Ffront.png?alt=media&token=fa4e1598-6eb3-4db1-bac2-b76a61156924",
+        "left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhosiery%2Fsocks%2Fleft.png?alt=media&token=20a1fcff-f954-4972-873d-cde8a3cfe04a",
+        "right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhosiery%2Fsocks%2Fright.png?alt=media&token=a663a61c-b123-43d6-bbb5-3164622b04ac",
+        "type": "hosiery"
+    },
+    {
+        "id": "mBM7AzO0UWI1OS87OGXR",
+        "name": "round_glasses",
+        "back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fglasses%2Fround_glasses%2Fback.png?alt=media&token=55162ee6-e041-448e-a354-50413c726902",
+        "front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fglasses%2Fround_glasses%2Ffront.png?alt=media&token=695b3a38-9dc5-44cb-ad69-b61bb136cb01",
+        "left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fglasses%2Fround_glasses%2Fleft.png?alt=media&token=50b37bba-48b7-4aa5-9dca-8ef31cdfefc5",
+        "right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fglasses%2Fround_glasses%2Fright.png?alt=media&token=c19bc46e-17b5-48e0-a5d1-c8f5f4ae86d2",
+        "type": "glasses"
+    },
+    {
+        "id": "n2Fat9zOgIGiPZl2mE43",
+        "type": "dresses",
+        "back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fdresses%2Flong_dress%2Fback.png?alt=media&token=88800393-e3f2-414b-bd50-ed3dda0c39ed",
+        "left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fdresses%2Flong_dress%2Fleft.png?alt=media&token=aa39a11f-4576-45d1-baaa-b4a9d90e3af9",
+        "right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fdresses%2Flong_dress%2Fright.png?alt=media&token=f9202d38-ae0c-41a3-ab93-3ff128ec447a",
+        "front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fdresses%2Flong_dress%2Ffront.png?alt=media&token=ecb7079d-3056-46d7-bd60-be9ce9c1d45b",
+        "name": "long_dress"
+    },
+    {
+        "id": "nculQViV0nG6bGnBJuIl",
+        "back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fglasses%2Fvisor%2Fback.png?alt=media&token=56cb693f-8dfc-4400-8b56-8193a908a805",
+        "name": "visor",
+        "front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fglasses%2Fvisor%2Ffront.png?alt=media&token=07adaa2d-4c8d-4027-9f8a-127d39b3ef4d",
+        "right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fglasses%2Fvisor%2Fright.png?alt=media&token=1e99801f-c72c-4ac0-a757-b9402c3b43e3",
+        "type": "glasses",
+        "left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fglasses%2Fvisor%2Fleft.png?alt=media&token=0d5ab648-55bb-43f9-a1d9-3adef9ddeb7a"
+    },
+    {
+        "id": "tqaJQq6sHqLDchudGXix",
+        "back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fbottoms%2Fshorts%2Fback.png?alt=media&token=7f05f11d-f716-4a8f-a4ee-7ae067f9b46c",
+        "name": "shorts",
+        "left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fbottoms%2Fshorts%2Fleft.png?alt=media&token=0a165b01-3831-4faf-a903-9af7aca4659e",
+        "front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fbottoms%2Fshorts%2Ffront.png?alt=media&token=3ded4ab8-9897-4301-828b-dadbeadc7541",
+        "chance": "",
+        "type": "bottoms",
+        "right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fbottoms%2Fshorts%2Fright.png?alt=media&token=7b8c6ad6-0d96-4096-b281-922d7a0e7a17"
+    },
+    {
+        "id": "vPhZl67yeRYpprLSBq3R",
+        "name": "striped_socks",
+        "right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhosiery%2Fstriped_socks%2Fright.png?alt=media&token=b2491b1a-27c7-4365-aefd-1cc765dfacb5",
+        "type": "hosiery",
+        "left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhosiery%2Fstriped_socks%2Fleft.png?alt=media&token=50ec3caf-01a5-437b-86dd-4411a9364535",
+        "back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhosiery%2Fstriped_socks%2Fback.png?alt=media&token=78902ba5-f8d5-4eab-bfd1-a71b030cd463",
+        "front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/clothes%2Fhosiery%2Fstriped_socks%2Ffront.png?alt=media&token=7d386a42-e4e6-48be-9479-8428fb8308a5"
     }
-}
+]

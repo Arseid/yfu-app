@@ -1,25 +1,26 @@
-{
-    "yfus": [
-        {
-            "prenom": "Lesley",
-            "nom": "Flakes",
-            "body-type": 1,
-            "phrase": "Tu sais, si tu réfléchis trop, tu va finir par ne rien faire. Lance-toi, tu verras bien !",
-            "descritpion": "coming soon"
-        },
-        {
-            "prenom": "Tiva",
-            "nom": "Matta",
-            "body-type": 1,
-            "phrase": "Alors, quelle sera notre prochaine destination ?",
-            "descritpion": "coming soon"
-        },
-        {
-            "prenom": "Maria",
-            "nom": "Belle",
-            "body-type": 2,
-            "phrase": "Hâte de recevoir ma nouvelle robe !",
-            "descritpion": "coming soon"
-        }
-    ]
-}
+[
+    {
+        "id": "RqyD67MlJWvlqmLF1Xkq",
+        "prenom": "Tiva",
+        "body-type": 1,
+        "full-front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/yfus%2Ftiva%2Ffull%2Ftiva-full-front.png?alt=media&token=7f29aa6d-2b1b-4eb7-87ac-5af70a87e9de",
+        "full-right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/yfus%2Ftiva%2Ffull%2Ftiva-full-right.png?alt=media&token=ee7f8815-983f-45d2-8ef6-15b01f509b99",
+        "description": "coming soon",
+        "full-left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/yfus%2Ftiva%2Ffull%2Ftiva-full-left.png?alt=media&token=f6785cdd-04d4-421b-b4b2-b1546f6d9d7e",
+        "nom": "Matta",
+        "full-back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/yfus%2Ftiva%2Ffull%2Ftiva-full-back.png?alt=media&token=3934add8-d3f3-4a64-96d8-ba58aafc5e11",
+        "phrase": "Alors, quelle sera notre prochaine destination ?"
+    },
+    {
+        "id": "pRDm9UZJg3PpAXRP08wL",
+        "full-right-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/yfus%2Flesley%2Ffull%2Flesley-full-right.png?alt=media&token=44048276-6b29-49cf-88e5-e684d0243bdf",
+        "full-front-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/yfus%2Flesley%2Ffull%2Flesley-full-front.png?alt=media&token=31afcfa8-258f-4a47-bbd0-bd9a6c4a3b71",
+        "prenom": "Lesley",
+        "body-type": 1,
+        "nom": "Flakes",
+        "description": "coming soon",
+        "full-back-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/yfus%2Flesley%2Ffull%2Flesley-full-back.png?alt=media&token=6d2ee060-6536-4c89-a0c4-904f12594229",
+        "phrase": "Tu sais, si tu réfléchis trop, tu va finir par ne rien faire. Lance-toi, tu verras bien !",
+        "full-left-url": "https://firebasestorage.googleapis.com/v0/b/yfu-database.appspot.com/o/yfus%2Flesley%2Ffull%2Flesley-full-left.png?alt=media&token=2918f139-75af-42c8-a2a6-d8b9afb2fc4c"
+    }
+]
