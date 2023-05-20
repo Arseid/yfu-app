@@ -47,18 +47,28 @@ const Home = () => {
     const [currentCharacter, setCurrentCharacter] = useState("Lesley");
     const [face, setFace] = useState("front");
     const [inventoryClothesType, setInventoryClothesType] = useState(clothesTypes[0]);
-    const [outfit, setOutfit] = useState(
-        {
-            hat:{},
-            glasses:{},
-            overcoat:{},
-            top:{},
-            bottom:{},
-            hosiery:{},
-            shoe:{},
-            dress:{}
-        }
-    );
+    const [outfits, setOutfits] = useState({
+        Lesley: {
+            hat: {},
+            glasses: {},
+            overcoat: {},
+            top: {},
+            bottom: {},
+            hosiery: {},
+            shoe: {},
+            dress: {},
+        },
+        Tiva: {
+            hat: {},
+            glasses: {},
+            overcoat: {},
+            top: {},
+            bottom: {},
+            hosiery: {},
+            shoe: {},
+            dress: {},
+        },
+    });
 
     useEffect(() => {
         axios
@@ -71,14 +81,21 @@ const Home = () => {
     }, []);
 
     const clothItemHandler = (clothingItem) => {
-        setOutfit((prevOutfit) => {
+        setOutfits((prevOutfits) => {
+            // Create a copy of the current character's outfit
+            const characterOutfit = { ...prevOutfits[currentCharacter] };
+
             // Check if the clicked cloth is already equipped
-            const isEquipped = prevOutfit[inventoryClothesType]?.name === clothingItem.name;
+            const isEquipped =
+                characterOutfit[inventoryClothesType]?.name === clothingItem.name;
 
             // Remove the cloth if it is already equipped, otherwise add it to the outfit
+            characterOutfit[inventoryClothesType] = isEquipped ? null : clothingItem;
+
+            // Create a new outfits object with the updated character outfit
             return {
-                ...prevOutfit,
-                [inventoryClothesType]: isEquipped ? null : clothingItem,
+                ...prevOutfits,
+                [currentCharacter]: characterOutfit,
             };
         });
     };
@@ -146,7 +163,7 @@ const Home = () => {
                                 lineHeight: "3rem",
                             }}
                         >
-                            ►&nbsp;Lesley
+                            ►&nbsp;{currentCharacter}
                         </Box>
                         <Box>
                             <Box
@@ -175,7 +192,7 @@ const Home = () => {
                                     {Array.from(clothesTypesSingular).map((type) => {
 
                                         // Check if there is a cloth of the current type equipped
-                                        const equippedCloth = outfit[type];
+                                        const equippedCloth = outfits[currentCharacter][type];
 
                                         return(
                                             <Box key={type}>
@@ -184,9 +201,9 @@ const Home = () => {
                                                     <Paper sx={{ width: "100px", height: "100px" }}>
                                                         <ClothingSprite cloth={equippedCloth} />
                                                     </Paper>
-                                                ) :
-                                                    <Paper sx={{ width: "100px", height: "100px" }}>
-                                                    </Paper>}
+                                                ) : (
+                                                    <Paper sx={{ width: "100px", height: "100px" }}></Paper>
+                                                )}
                                             </Box>
                                         )
                                     })}
@@ -272,7 +289,11 @@ const Home = () => {
                                 alignItems: "center",
                             }}
                         >
-                            <DressingView characterName={currentCharacter} face={face} outfit={outfit}/>
+                            <DressingView
+                                characterName={currentCharacter}
+                                face={face}
+                                outfit={outfits[currentCharacter]}
+                            />
                         </Box>
                         <Stack
                             direction={"row"}
@@ -353,8 +374,8 @@ const Home = () => {
                                 ))}
                             </NativeSelect>
                         </Box>
-                        <Box sx={{ px: "1rem", height:'100%', overflowY:'auto'}}>
-                            {clothes ?
+                        <Box sx={{ px: "1rem", height: "100%", overflowY: "auto" }}>
+                            {clothes ? (
                                 <Grid container spacing={"1rem"}>
                                     {Array.from(clothes).map((clothingItem, index) => (
                                         clothingItem.type === inventoryClothesType && (
@@ -383,9 +404,10 @@ const Home = () => {
                                             </Grid>
                                         )
                                     ))}
-                                </Grid> :
+                                </Grid>
+                            ) : (
                                 <>Loading...</>
-                            }
+                            )}
                         </Box>
                     </Stack>
                 </Grid>
