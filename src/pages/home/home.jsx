@@ -4,7 +4,6 @@ import CharacterHeadButton from "../../components/sprites/characters/CharacterHe
 import DressingView from "../../components/sprites/DressingView";
 import {useState} from "react";
 import axios from "axios";
-import SpriteImage from "../../components/sprites/SpriteImage";
 import ClothingSprite from "../../components/sprites/clothes/ClothingSprite";
 
 const clothesTypes = [
@@ -50,14 +49,14 @@ const Home = () => {
     const [inventoryClothesType, setInventoryClothesType] = useState(clothesTypes[0]);
     const [outfit, setOutfit] = useState(
         {
-            hat:'',
-            glasses:'',
-            top:'',
-            overcoat:'',
-            bottom:'',
-            hosiery:'',
-            shoe:'',
-            dress:''
+            hat:{},
+            glasses:{},
+            overcoat:{},
+            top:{},
+            bottom:{},
+            hosiery:{},
+            shoe:{},
+            dress:{}
         }
     );
 
@@ -248,7 +247,7 @@ const Home = () => {
                                 alignItems: "center",
                             }}
                         >
-                            <DressingView characterName={currentCharacter} face={face}/>
+                            <DressingView characterName={currentCharacter} face={face} outfit={outfit}/>
                         </Box>
                         <Stack
                             direction={"row"}
@@ -346,11 +345,16 @@ const Home = () => {
                                                             cursor: 'pointer'
                                                         }
                                                     }}
+                                                    onClick={() => {
+                                                        setOutfit(prevOutfit => ({
+                                                            ...prevOutfit,
+                                                            [inventoryClothesType]: clothingItem
+                                                        }));
+                                                    }}
                                                 >
                                                     <Box sx={{height: '100px'}}>
                                                         <ClothingSprite
-                                                            name={clothingItem.name}
-                                                            category={inventoryClothesType}
+                                                            cloth={clothingItem}
                                                         />
                                                     </Box>
                                                 </Paper>

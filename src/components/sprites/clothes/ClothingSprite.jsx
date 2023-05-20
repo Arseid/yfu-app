@@ -1,37 +1,27 @@
 import React, {useEffect, useState} from "react";
 import SpriteImage from "../SpriteImage";
-import axios from "axios";
 
-const ClothingSprite = ({ category, name, face = 'front' }) => {
+const ClothingSprite = ({ cloth, face = 'front' }) => {
   const [sprite, setSprite] = useState(null);
 
   useEffect(() => {
-    axios
-        .get("http://localhost:5000/clothes")
-        .then((response) => {
-          const data = response.data;
-          const selectedSprite = data.find((cloth) => cloth["name"] === name && cloth["type"] === category);
-          if (selectedSprite) {
-            let imageUrl;
-
-            if (face === "front") {
-              imageUrl = selectedSprite["front-url"];
-            } else if (face === "back") {
-              imageUrl = selectedSprite["back-url"];
-            } else if (face === "left") {
-              imageUrl = selectedSprite["left-url"];
-            } else if (face === "right") {
-              imageUrl = selectedSprite["right-url"];
-            }
-
-            setSprite(imageUrl);
+      if (cloth){
+          let imageUrl;
+          if (face === "front") {
+              imageUrl = cloth["front-url"];
+          } else if (face === "back") {
+              imageUrl = cloth["back-url"];
+          } else if (face === "left") {
+              imageUrl = cloth["left-url"];
+          } else if (face === "right") {
+              imageUrl = cloth["right-url"];
           }
-        })
-        .catch((error) => console.error(error));
-  }, [category, face, name]);
+          setSprite(imageUrl);
+      }
+  }, [cloth, face]);
 
   if (!sprite)
-    return <div>Loading...</div>
+    return <div></div>
 
   return (
     <SpriteImage

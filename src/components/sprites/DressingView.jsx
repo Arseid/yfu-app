@@ -4,28 +4,26 @@ import Character from "./characters/CharacterSprite";
 import ClothingPiece from "./clothes/ClothingSprite";
 
 const DressingView = ({
-  characterName = "lesley",
-  clothingTop = 'white_t_shirt',
-  clothingHats,
-  clothingGlasses,
-  clothingOvercoats,
-  clothingBottoms,
-  clothingHosiery,
-  clothingShoes,
-  clothingDresses,
-  face = "front",
+  characterName,
+    outfit,
+  face,
 }) => {
+
   return (
     <SpritesSuperposition>
       <Character name={characterName} face={face} />
-      {clothingTop && (
-        <ClothingPiece
-          category={'tops'}
-          name={clothingTop}
-          face={face}
-          key={clothingTop}
-        />
-      )}
+      {Object.entries(outfit).map(([type, cloth]) => {
+        if (cloth) {
+          return (
+              <ClothingPiece
+                  key={`${type}-${cloth.name}`}
+                  cloth={cloth}
+                  face={face}
+              />
+          );
+        }
+        return null;
+      })}
     </SpritesSuperposition>
   );
 };
