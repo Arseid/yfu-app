@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import SpriteImage from "../SpriteImage";
 
-const ClothingSprite = ({ cloth, face = 'front' }) => {
+const ClothingSprite = ({ cloth, face = 'front', zIndex }) => {
   const [sprite, setSprite] = useState(null);
 
   useEffect(() => {
@@ -24,9 +24,10 @@ const ClothingSprite = ({ cloth, face = 'front' }) => {
     return <div></div>
 
   return (
-    <SpriteImage
-      src={sprite}
-    />
+      <SpriteImage
+          src={sprite}
+          style={{ zIndex }}
+      />
   );
 };
 

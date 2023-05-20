@@ -3,11 +3,19 @@ import SpritesSuperposition from "./SpritesSuperposition";
 import Character from "./characters/CharacterSprite";
 import ClothingPiece from "./clothes/ClothingSprite";
 
-const DressingView = ({
-  characterName,
-    outfit,
-  face,
-}) => {
+const DressingView = ({ characterName, outfit, face }) => {
+
+  const zIndexes = {
+    hats: 7,
+    glasses: 8,
+    overcoats: 6,
+    tops: 5,
+    bottoms: 4,
+    hosiery: 3,
+    shoes: 2,
+    dresses: 1,
+  };
+
 
   return (
     <SpritesSuperposition>
@@ -19,6 +27,7 @@ const DressingView = ({
                   key={`${type}-${cloth.name}`}
                   cloth={cloth}
                   face={face}
+                  zIndex={zIndexes[type]}
               />
           );
         }
