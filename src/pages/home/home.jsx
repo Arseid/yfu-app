@@ -70,6 +70,19 @@ const Home = () => {
             .catch((error) => console.error(error));
     }, []);
 
+    const clothItemHandler = (clothingItem) => {
+        setOutfit((prevOutfit) => {
+            // Check if the clicked cloth is already equipped
+            const isEquipped = prevOutfit[inventoryClothesType]?.name === clothingItem.name;
+
+            // Remove the cloth if it is already equipped, otherwise add it to the outfit
+            return {
+                ...prevOutfit,
+                [inventoryClothesType]: isEquipped ? null : clothingItem,
+            };
+        });
+    };
+
     return (
         <Stack alignItems={"center"} sx={{height: "100%", overflow: "hidden"}}>
             <Paper
@@ -346,10 +359,7 @@ const Home = () => {
                                                         }
                                                     }}
                                                     onClick={() => {
-                                                        setOutfit(prevOutfit => ({
-                                                            ...prevOutfit,
-                                                            [inventoryClothesType]: clothingItem
-                                                        }));
+                                                        clothItemHandler(clothingItem);
                                                     }}
                                                 >
                                                     <Box sx={{height: '100px'}}>
