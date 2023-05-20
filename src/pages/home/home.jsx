@@ -18,14 +18,14 @@ const clothesTypes = [
 ];
 
 const clothesTypesSingular = [
-    "hat",
+    "hats",
     "glasses",
-    "top",
-    "overcoat",
-    "bottom",
+    "tops",
+    "overcoats",
+    "bottoms",
     "hosiery",
-    "shoe",
-    "dress",
+    "shoes",
+    "dresses",
 ];
 
 const faces = ["front", "right", "back", "left"];
@@ -172,12 +172,24 @@ const Home = () => {
                                     spacing="1rem"
                                     sx={{height: "100%", overflow: "auto"}}
                                 >
-                                    {Array.from(clothesTypesSingular).map((type) => (
-                                        <Box key={type}>
-                                            {type}
-                                            <Paper sx={{width: "100px", height: "100px"}}></Paper>
-                                        </Box>
-                                    ))}
+                                    {Array.from(clothesTypesSingular).map((type) => {
+
+                                        // Check if there is a cloth of the current type equipped
+                                        const equippedCloth = outfit[type];
+
+                                        return(
+                                            <Box key={type}>
+                                                {type}
+                                                {equippedCloth ? (
+                                                    <Paper sx={{ width: "100px", height: "100px" }}>
+                                                        <ClothingSprite cloth={equippedCloth} />
+                                                    </Paper>
+                                                ) :
+                                                    <Paper sx={{ width: "100px", height: "100px" }}>
+                                                    </Paper>}
+                                            </Box>
+                                        )
+                                    })}
                                 </Stack>
                             </Paper>
                         </Box>
