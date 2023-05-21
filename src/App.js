@@ -15,18 +15,73 @@ import Login from "./pages/login/login";
 import { auth } from './config/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 import UserContext from './context/UserContext';
+import UserDataContext from "./context/UserDataContext";
 import music from "./assets/Kawaii-BadSnacks.mp3";
 import { VolumeOff, VolumeUp } from "@mui/icons-material";
+import axios from "axios";
 
 function App() {
 
     const [user, setUser] = useState(null);
+    const [userData, setUserData] = useState({});
     const [isPlaying, setIsPlaying] = useState(false);
     const audioRef = React.createRef();
+    const [outfits, setOutfits] = useState(
+        userData && userData["outfits"]
+            ? userData["outfits"]
+            : {
+                Lesley: {
+                    hats: {},
+                    glasses: {},
+                    overcoats: {},
+                    tops: {},
+                    bottoms: {},
+                    hosiery: {},
+                    shoes: {},
+                    dresses: {},
+                },
+                Tiva: {
+                    hats: {},
+                    glasses: {},
+                    overcoats: {},
+                    tops: {},
+                    bottoms: {},
+                    hosiery: {},
+                    shoes: {},
+                    dresses: {},
+                },
+            }
+    );
+
+    const outfitsUpdateHandler = (newOutfits) => {
+        setOutfits(newOutfits);
+        axios
+            .put(`http://localhost:5000/users/${user["uid"]}`, { outfits: newOutfits })
+            .catch((error) => {
+                console.error("Failed to update user current outfits:", error);
+            });
+    };
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
+            if (currentUser) {
+                axios.get(`http://localhost:5000/users/${currentUser["uid"]}`)
+                    .then((res) => {
+                        setUserData(res["data"]);
+
+                        const fetchedOutfits = res["data"]["outfits"];
+                        if (fetchedOutfits) {
+                            setOutfits(fetchedOutfits);
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error fetching user data:", error);
+                    });
+            }
+            else {
+                setUserData(null);
+            }
         });
 
         return () => unsubscribe();
@@ -44,6 +99,7 @@ function App() {
 
     return (
         <UserContext.Provider value={user}>
+            <UserDataContext.Provider value={userData}>
             <BrowserRouter>
                 <Stack
                     className="App"
@@ -77,7 +133,7 @@ function App() {
                 }}>
                             {user ? (
                                 <Routes>
-                                    <Route path='/' element={<Home />} />
+                                    <Route path='/' element={<Home outfits={outfits} onOutfitsUpdate={outfitsUpdateHandler}/>} />
                                     <Route path='/minigames' element={<Minigames />} />
                                     <Route path='/gacha' element={<Gacha />} />
                                     <Route path='/signup' element={<Signup />} />
@@ -122,6 +178,7 @@ function App() {
                 </Box>
             </Stack>
         </BrowserRouter>
+            </UserDataContext.Provider>
         </UserContext.Provider>
     );
 }
