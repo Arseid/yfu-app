@@ -5,6 +5,7 @@ import DressingView from "../../components/sprites/DressingView";
 import {useState} from "react";
 import axios from "axios";
 import ClothingSprite from "../../components/sprites/clothes/ClothingSprite";
+import UserDataContext from "../../context/UserDataContext";
 
 const clothesTypes = [
     "hats",
@@ -47,16 +48,20 @@ const Home = ({ outfits, onOutfitsUpdate }) => {
     const [currentCharacter, setCurrentCharacter] = useState("Lesley");
     const [face, setFace] = useState("front");
     const [inventoryClothesType, setInventoryClothesType] = useState(clothesTypes[0]);
+    const userData = React.useContext(UserDataContext);
 
     useEffect(() => {
-        axios
-            .get("http://localhost:5000/clothes")
-            .then((response) => {
-                const data = response.data;
-                setClothes(data);
-            })
-            .catch((error) => console.error(error));
-    }, []);
+        if (userData["clothes"]) {
+            const userClothesIds = userData["clothes"];
+            axios.get("http://localhost:5000/clothes")
+                .then((response) => {
+                    const allClothes = response.data;
+                    const userClothes = allClothes.filter(cloth => userClothesIds.includes(cloth["id"]));
+                    setClothes(userClothes);
+                })
+                .catch((error) => console.error(error));
+        }
+    }, [userData]);
 
     const clothItemHandler = (clothingItem) => {
         // Create a copy of the current character's outfit
