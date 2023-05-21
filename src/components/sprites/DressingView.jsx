@@ -8,8 +8,8 @@ const DressingView = ({ characterName, outfit, face }) => {
   const zIndexes = {
     hats: 7,
     glasses: 8,
-    overcoats: 6,
-    tops: 5,
+    tops: 6,
+    overcoats: 5,
     bottoms: 4,
     hosiery: 3,
     shoes: 2,
@@ -20,19 +20,21 @@ const DressingView = ({ characterName, outfit, face }) => {
   return (
     <SpritesSuperposition>
       <Character name={characterName} face={face} />
-      {Object.entries(outfit).map(([type, cloth]) => {
-        if (cloth) {
-          return (
+      {Object.entries(outfit)
+        .sort((a, b) => zIndexes[b[0]] - zIndexes[a[0]])
+        .map(([type, cloth]) => {
+          if (cloth) {
+            return (
               <ClothingPiece
                   key={`${type}-${cloth.name}`}
                   cloth={cloth}
                   face={face}
                   zIndex={zIndexes[type]}
               />
-          );
-        }
-        return null;
-      })}
+            );
+          }
+          return null;
+        })}
     </SpritesSuperposition>
   );
 };
