@@ -42,33 +42,11 @@ function getPreviousFace(face) {
     else return faces[faceIndex - 1];
 }
 
-const Home = () => {
+const Home = ({ outfits, onOutfitsUpdate }) => {
     const [clothes, setClothes] = useState(null);
     const [currentCharacter, setCurrentCharacter] = useState("Lesley");
     const [face, setFace] = useState("front");
     const [inventoryClothesType, setInventoryClothesType] = useState(clothesTypes[0]);
-    const [outfits, setOutfits] = useState({
-        Lesley: {
-            hat: {},
-            glasses: {},
-            overcoat: {},
-            top: {},
-            bottom: {},
-            hosiery: {},
-            shoe: {},
-            dress: {},
-        },
-        Tiva: {
-            hat: {},
-            glasses: {},
-            overcoat: {},
-            top: {},
-            bottom: {},
-            hosiery: {},
-            shoe: {},
-            dress: {},
-        },
-    });
 
     useEffect(() => {
         axios
@@ -81,23 +59,20 @@ const Home = () => {
     }, []);
 
     const clothItemHandler = (clothingItem) => {
-        setOutfits((prevOutfits) => {
-            // Create a copy of the current character's outfit
-            const characterOutfit = { ...prevOutfits[currentCharacter] };
+        // Create a copy of the current character's outfit
+        const characterOutfit = { ...outfits[currentCharacter] };
 
-            // Check if the clicked cloth is already equipped
-            const isEquipped =
-                characterOutfit[inventoryClothesType]?.name === clothingItem.name;
+        // Check if the clicked cloth is already equipped
+        const isEquipped = characterOutfit[inventoryClothesType]?.name === clothingItem.name;
 
-            // Remove the cloth if it is already equipped, otherwise add it to the outfit
-            characterOutfit[inventoryClothesType] = isEquipped ? null : clothingItem;
+        // Remove the cloth if it is already equipped, otherwise add it to the outfit
+        characterOutfit[inventoryClothesType] = isEquipped ? {} : clothingItem;
 
-            // Create a new outfits object with the updated character outfit
-            return {
-                ...prevOutfits,
-                [currentCharacter]: characterOutfit,
-            };
-        });
+        // Create a new outfits object with the updated character outfit
+        const updatedOutfits = { ...outfits, [currentCharacter]: characterOutfit };
+
+        // Update the user data in the server
+        onOutfitsUpdate(updatedOutfits);
     };
 
     return (
@@ -192,7 +167,11 @@ const Home = () => {
                                     {Array.from(clothesTypesSingular).map((type) => {
 
                                         // Check if there is a cloth of the current type equipped
-                                        const equippedCloth = outfits[currentCharacter][type];
+                                        let equippedCloth = null;
+
+                                        if (outfits && outfits.hasOwnProperty(currentCharacter) && outfits[currentCharacter].hasOwnProperty(type)) {
+                                            equippedCloth = outfits[currentCharacter][type];
+                                        }
 
                                         return(
                                             <Box key={type}>
@@ -292,7 +271,7 @@ const Home = () => {
                             <DressingView
                                 characterName={currentCharacter}
                                 face={face}
-                                outfit={outfits[currentCharacter]}
+                                outfit={outfits && outfits[currentCharacter] ? outfits[currentCharacter] : {}}
                             />
                         </Box>
                         <Stack
