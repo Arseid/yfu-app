@@ -102,7 +102,7 @@ function Minigames() {
                 variant="contained"
                 size="large"
                 onClick={() => handleClick(index)}
-                disabled={cell || winner}
+                disabled={cell || winner ? true : false}
                 fullWidth
                 sx={{
                   position: "relative",
@@ -146,16 +146,16 @@ function Minigames() {
           }}
         >
           <Box sx={{ textAlign: "center" }}>
-            {winner === "draw" ? (
-              <>It's a draw!</>
-            ) : winner === "O" ? (
+            {winner === "draw" && <>It's a draw!</>}
+
+            {winner === "O" && (
               <>
-                You win! You gain a coin, you now have {userData["coins"]}{" "}
+                You win! You gain a coin, you now have {userData["coins"]}&nbsp;
                 coins! Good luck for your draws!
               </>
-            ) : (
-              <>You lose! Better luck next time!</>
             )}
+
+            {winner === "X" && <>You lose! Better luck next time!</>}
           </Box>
           <Button
             variant="contained"

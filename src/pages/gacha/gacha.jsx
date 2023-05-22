@@ -30,6 +30,7 @@ const Gacha = () => {
 
         // Randomly select an item from the chosen array
         const selectedCloth = Math.floor(Math.random() * selectedArray.length);
+        console.log(selectedArray[selectedCloth]);
         return selectedArray[selectedCloth];
     };
 
@@ -90,9 +91,9 @@ const Gacha = () => {
         justifyContent="center"
         sx={{
           position: "relative",
-          minWidth: "600px",
-          minHeight: "600px",
-          borderRadius: "50%",
+          width: "600px",
+          height: "600px",
+          borderRadius: "600px",
           backgroundColor: "white",
         }}
       >
