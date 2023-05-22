@@ -23,6 +23,7 @@ import ClothesContext from "./context/ClothesContext";
 import YfusContext from "./context/YfusContext";
 import Profile from './pages/profile/profile';
 import About from "./pages/about/about";
+import CheatPage from "./pages/secret/Cheat";
 
 function App() {
     const [burgerMenuAnchorEl, setBurgerMenuAnchorEl] = useState(null);
@@ -177,6 +178,7 @@ function App() {
                                                 <Route path='/about' element={<About />} />
                                                 <Route path='/gacha' element={<Gacha />} />
                                                 <Route path='/signup' element={<Signup />} />
+                                                <Route path='/upupdowndownleftrightleftrightba' element={<CheatPage />} />
                                             </Routes>
                                         ) : (
                                             <Routes>
