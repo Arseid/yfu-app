@@ -49,7 +49,7 @@ function App() {
 
     const [user, setUser] = useState(null);
     const [userData, setUserData] = useState({});
-    const [allClothes, setAllClothes] = useState({});
+    const [allClothes, setAllClothes] = useState([]);
     const [isPlaying, setIsPlaying] = useState(false);
     const audioRef = React.createRef();
     const [outfits, setOutfits] = useState(
@@ -179,7 +179,7 @@ function App() {
                                     )}
                                 </Box>
                             <>
-                                {user && userData && (<Box
+                                {user && userData && allClothes &&  (<Box
                             className="nav"
                             sx={{
                                 p: "1rem",
