@@ -17,6 +17,8 @@ import { onAuthStateChanged } from 'firebase/auth';
 import UserContext from './context/UserContext';
 import music from "./assets/Kawaii-BadSnacks.mp3";
 import { VolumeOff, VolumeUp } from "@mui/icons-material";
+import Profile from './pages/profile/profile';
+import About from "./pages/about/about";
 
 function App() {
     const [burgerMenuAnchorEl, setBurgerMenuAnchorEl] = useState(null);
@@ -35,6 +37,7 @@ function App() {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
+            console.log(currentUser);
         });
 
         return () => unsubscribe();
@@ -88,6 +91,8 @@ function App() {
                                 <Route path='/' element={<Home />} />
                                 <Route path='/minigames' element={<Minigames />} />
                                 <Route path='/gacha' element={<Gacha />} />
+                                <Route path='/profile' element={<Profile />} />
+                                <Route path='/about' element={<About />} />
                                 <Route path='/signup' element={<Signup />} />
                             </Routes>
                         ) : (
@@ -131,21 +136,25 @@ function App() {
                             <Menu
                                 id="basic-menu"
                                 anchorEl={burgerMenuAnchorEl}
+                                anchorOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
                                 open={openBurgerMenu}
                                 onClose={handleBurgerMenuClose}
                                 MenuListProps={{
                                     'aria-labelledby': 'basic-button',
                                 }}
                             >
-                                <MenuItem onClick={handleBurgerMenuClose}>Profile</MenuItem>
-                                <MenuItem onClick={handleBurgerMenuClose}>About</MenuItem>
-                                <MenuItem onClick={handleBurgerMenuClose}>Logout</MenuItem>
-                            </Menu>
+                            <Link to='/profile'><MenuItem onClick={handleBurgerMenuClose}>Profile</MenuItem></Link>
+                            <Link to='/about'><MenuItem onClick={handleBurgerMenuClose}>About</MenuItem></Link>
+                            <MenuItem onClick={handleBurgerMenuClose}>Logout</MenuItem>
+                        </Menu>
                         </Box>)}
-                    </>
-                </Stack>
-            </BrowserRouter>
-        </UserContext.Provider>
+                </>
+            </Stack>
+        </BrowserRouter>
+        </UserContext.Provider >
     );
 }
 
