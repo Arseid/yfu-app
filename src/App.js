@@ -7,7 +7,7 @@ import {
 import Home from "./pages/home/home";
 import Gacha from "./pages/gacha/gacha";
 import Minigames from "./pages/minigames/minigames";
-import { Box, IconButton, Stack, Tooltip } from "@mui/material";
+import { Box, IconButton, Menu, MenuItem, Stack, Tooltip } from "@mui/material";
 import yfu_logo from "./assets/brand/svg/yfu-icon.svg";
 import YFUNavButton from "./components/buttons/YFUNavButton";
 import Signup from "./pages/signup/signup";
@@ -21,6 +21,30 @@ import { VolumeOff, VolumeUp } from "@mui/icons-material";
 import axios from "axios";
 
 function App() {
+    const [burgerMenuAnchorEl, setBurgerMenuAnchorEl] = useState(null);
+    const openBurgerMenu = Boolean(burgerMenuAnchorEl);
+    const handleBurgerButtonClick = (event) => {
+        setBurgerMenuAnchorEl(event.currentTarget);
+    };
+    const handleBurgerMenuClose = (action) => {
+        setBurgerMenuAnchorEl(null);
+
+        if (action === 'profile') {
+            console.log('Profile clicked');
+        }
+        else if (action === 'about') {
+            console.log('About clicked');
+        }
+        else if (action === 'logout') {
+            auth.signOut()
+                .then(() => {
+                    console.log('User signed out successfully');
+                })
+                .catch((error) => {
+                    console.error('Error signing out:', error);
+                });
+        }
+    };
 
     const [user, setUser] = useState(null);
     const [userData, setUserData] = useState({});
@@ -131,7 +155,7 @@ function App() {
                     height: "100%", p: '1rem', pb: '7rem',
                     boxSizing: 'border-box'
                 }}>
-                            {user ? (
+                            {user && userData ? (
                                 <Routes>
                                     <Route path='/' element={<Home outfits={outfits} onOutfitsUpdate={outfitsUpdateHandler}/>} />
                                     <Route path='/minigames' element={<Minigames />} />
@@ -145,7 +169,8 @@ function App() {
                                 </Routes>
                             )}
                         </Box>
-                <Box
+                    <>
+                        {user && userData && (<Box
                     className="nav"
                     sx={{
                         p: "1rem",
@@ -170,14 +195,28 @@ function App() {
 
                             <div style={{ width: '150px' }}>
 
-                            </div>
-                            <Link to='/minigames'><YFUNavButton tooltip='Mini Games' pathname={"/minigames"} /></Link>
-                            <YFUNavButton tooltip='Options' />
-                        </Stack>
-                    </Stack>
-                </Box>
-            </Stack>
-        </BrowserRouter>
+                                    </div>
+                                    <Link to='/minigames'><YFUNavButton tooltip='Mini Games' pathname={"/minigames"} /></Link>
+                                    <YFUNavButton tooltip='Options' onClick={handleBurgerButtonClick} />
+                                </Stack>
+                            </Stack>
+                            <Menu
+                                id="basic-menu"
+                                anchorEl={burgerMenuAnchorEl}
+                                open={openBurgerMenu}
+                                onClose={handleBurgerMenuClose}
+                                MenuListProps={{
+                                    'aria-labelledby': 'basic-button',
+                                }}
+                            >
+                                <MenuItem onClick={() => handleBurgerMenuClose('profile')}>Profile</MenuItem>
+                                <MenuItem onClick={() => handleBurgerMenuClose('about')}>About</MenuItem>
+                                <MenuItem onClick={() => handleBurgerMenuClose('logout')}>Logout</MenuItem>
+                            </Menu>
+                        </Box>)}
+                    </>
+                </Stack>
+            </BrowserRouter>
             </UserDataContext.Provider>
         </UserContext.Provider>
     );

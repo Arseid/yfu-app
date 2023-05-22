@@ -363,7 +363,7 @@ const Home = ({ outfits, onOutfitsUpdate }) => {
                                 <Grid container spacing={"1rem"}>
                                     {Array.from(clothes).map((clothingItem, index) => (
                                         clothingItem.type === inventoryClothesType && (
-                                            <Grid item xs={12} md={6} lg={4} xl={3} key={index}>
+                                            <Grid item xs={12} md={6} lg={4} xl={3} key={clothingItem.name}>
                                                 <Paper
                                                     sx={{
                                                         display: "flex",
