@@ -23,6 +23,7 @@ import ClothesContext from "./context/ClothesContext";
 import YfusContext from "./context/YfusContext";
 import Profile from './pages/profile/profile';
 import About from "./pages/about/about";
+import CheatPage from "./pages/secret/Cheat";
 
 function App() {
     const [burgerMenuAnchorEl, setBurgerMenuAnchorEl] = useState(null);
@@ -166,50 +167,51 @@ function App() {
                                     </Tooltip>
                                 </Box>
                                 <Box sx={{
-                                    height: "100%", p: '1rem', pb: '7rem',
-                                    boxSizing: 'border-box'
-                                }}>
-                                    {user && userData ? (
-                                        <Routes>
-                                            <Route path='/' element={<Home outfits={outfits} onOutfitsUpdate={outfitsUpdateHandler} />} />
-                                            <Route path='/minigames' element={<Minigames />} />
-                                            <Route path='/profile' element={<Profile />} />
-                                            <Route path='/about' element={<About />} />
-                                            <Route path='/gacha' element={<Gacha />} />
-                                            <Route path='/signup' element={<Signup />} />
-                                        </Routes>
-                                    ) : (
-                                        <Routes>
-                                            <Route path='/' element={<Login />} />
-                                            <Route path='/signup' element={<Signup />} />
-                                        </Routes>
-                                    )}
-                                </Box>
+                                height: "100%", p: '1rem', pb: '7rem',
+                                boxSizing: 'border-box'
+                            }}>
+                                        {user && userData ? (
+                                            <Routes>
+                                                <Route path='/' element={<Home outfits={outfits} onOutfitsUpdate={outfitsUpdateHandler}/>} />
+                                                <Route path='/minigames' element={<Minigames />} />
+                                                <Route path='/profile' element={<Profile />} />
+                                                <Route path='/about' element={<About />} />
+                                                <Route path='/gacha' element={<Gacha />} />
+                                                <Route path='/signup' element={<Signup />} />
+                                                <Route path='/upupdowndownleftrightleftrightba' element={<CheatPage />} />
+                                            </Routes>
+                                        ) : (
+                                            <Routes>
+                                                <Route path='/' element={<Login />} />
+                                                <Route path='/signup' element={<Signup />} />
+                                            </Routes>
+                                        )}
+                                    </Box>
                                 <>
-                                    {user && userData && allClothes && (<Box
-                                        className="nav"
-                                        sx={{
-                                            p: "1rem",
-                                            background: 'radial-gradient(58.28% 942.92% at 50% -526.89%, #FFFFFF 57.7%, transparent 100%)',
-                                            position: 'fixed',
-                                            bottom: 0,
-                                            width: '100%',
-                                            boxSizing: 'border-box'
-                                        }}
-                                    >
-                                        <Stack
-                                            direction={"row"}
-                                            alignItems={"center"}
-                                            justifyContent={"center"}
-                                        >
-                                            <Link to="/" style={{ position: 'absolute', bottom: '0', height: '150px', left: 'auto', right: 'auto' }}>
-                                                <img src={yfu_logo} height={"100%"} alt="Y" />
-                                            </Link>
-                                            <Stack direction={'row'} spacing={'2rem'} justifyContent={'space-around'}>
-                                                <Link to='/'><YFUNavButton tooltip='Dressing' pathname={"/"} /></Link>
-                                                <Link to='/gacha'><YFUNavButton tooltip='Gacha' pathname={"/gacha"} /></Link>
+                                    {user && userData && allClothes &&  (<Box
+                                className="nav"
+                                sx={{
+                                    p: "1rem",
+                                    background: 'radial-gradient(58.28% 942.92% at 50% -526.89%, #FFFFFF 57.7%, transparent 100%)',
+                                    position: 'fixed',
+                                    bottom: 0,
+                                    width: '100%',
+                                    boxSizing: 'border-box'
+                                }}
+                            >
+                                <Stack
+                                    direction={"row"}
+                                    alignItems={"center"}
+                                    justifyContent={"center"}
+                                >
+                                    <Link to="/" style={{ position: 'absolute', bottom: '0', height: '150px', left: 'auto', right: 'auto' }}>
+                                        <img src={yfu_logo} height={"100%"} alt="Y" />
+                                    </Link>
+                                    <Stack direction={'row'} spacing={'2rem'} justifyContent={'space-around'}>
+                                        <Link to='/'><YFUNavButton tooltip='Dressing' pathname={"/"} /></Link>
+                                        <Link to='/gacha'><YFUNavButton tooltip='Gacha' pathname={"/gacha"} /></Link>
 
-                                                <div style={{ width: '150px' }}>
+                                        <div style={{ width: '150px' }}>
 
                                                 </div>
                                                 <Link to='/minigames'><YFUNavButton tooltip='Mini Games' pathname={"/minigames"} /></Link>
@@ -225,21 +227,9 @@ function App() {
                                                 'aria-labelledby': 'basic-button',
                                             }}
                                         >
-                                            <Link to='/profile' style={{ textDecoration: "none", color: "black" }}>
-                                                <MenuItem onClick={() => handleBurgerMenuClose('profile')} sx={{ fontFamily: 'inherit' }}>
-                                                    Profile
-                                                </MenuItem>
-                                            </Link>
-                                            <Link to='/about' style={{ textDecoration: "none", color: "black" }}>
-                                                <MenuItem onClick={() => handleBurgerMenuClose('about')} sx={{ fontFamily: 'inherit' }}>
-                                                    About
-                                                </MenuItem>
-                                            </Link>
-                                            <Link to='/' style={{ textDecoration: "none", color: "black" }}>
-                                                <MenuItem onClick={() => handleBurgerMenuClose('logout')} sx={{ fontFamily: 'inherit' }}>
-                                                    Logout
-                                                </MenuItem>
-                                            </Link>
+                                            <Link to='/profile' style={{textDecoration: "none", color: "black"}}><MenuItem onClick={() => handleBurgerMenuClose('profile')}>Profile</MenuItem></Link>
+                                            <Link to='/about' style={{textDecoration: "none", color: "black"}}><MenuItem onClick={() => handleBurgerMenuClose('about')}>About</MenuItem></Link>
+                                            <Link to='/' style={{textDecoration: "none", color: "black"}}><MenuItem onClick={() => handleBurgerMenuClose('logout')}>Logout</MenuItem></Link>
                                         </Menu>
                                     </Box>)}
                                 </>
