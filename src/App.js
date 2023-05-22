@@ -26,8 +26,24 @@ function App() {
     const handleBurgerButtonClick = (event) => {
         setBurgerMenuAnchorEl(event.currentTarget);
     };
-    const handleBurgerMenuClose = () => {
+    const handleBurgerMenuClose = (action) => {
         setBurgerMenuAnchorEl(null);
+
+        if (action === 'profile') {
+            console.log('Profile clicked');
+        }
+        else if (action === 'about') {
+            console.log('About clicked');
+        }
+        else if (action === 'logout') {
+            auth.signOut()
+                .then(() => {
+                    console.log('User signed out successfully');
+                })
+                .catch((error) => {
+                    console.error('Error signing out:', error);
+                });
+        }
     };
 
     const [user, setUser] = useState(null);
@@ -139,7 +155,7 @@ function App() {
                     height: "100%", p: '1rem', pb: '7rem',
                     boxSizing: 'border-box'
                 }}>
-                            {user ? (
+                            {user && userData ? (
                                 <Routes>
                                     <Route path='/' element={<Home outfits={outfits} onOutfitsUpdate={outfitsUpdateHandler}/>} />
                                     <Route path='/minigames' element={<Minigames />} />
@@ -154,7 +170,7 @@ function App() {
                             )}
                         </Box>
                     <>
-                        {user && (<Box
+                        {user && userData && (<Box
                     className="nav"
                     sx={{
                         p: "1rem",
@@ -193,14 +209,15 @@ function App() {
                                     'aria-labelledby': 'basic-button',
                                 }}
                             >
-                                <MenuItem onClick={handleBurgerMenuClose}>Profile</MenuItem>
-                                <MenuItem onClick={handleBurgerMenuClose}>About</MenuItem>
-                                <MenuItem onClick={handleBurgerMenuClose}>Logout</MenuItem>
+                                <MenuItem onClick={() => handleBurgerMenuClose('profile')}>Profile</MenuItem>
+                                <MenuItem onClick={() => handleBurgerMenuClose('about')}>About</MenuItem>
+                                <MenuItem onClick={() => handleBurgerMenuClose('logout')}>Logout</MenuItem>
                             </Menu>
                         </Box>)}
                     </>
                 </Stack>
             </BrowserRouter>
+            </UserDataContext.Provider>
         </UserContext.Provider>
     );
 }

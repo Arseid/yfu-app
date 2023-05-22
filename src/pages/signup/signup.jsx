@@ -1,10 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { auth } from "../../config/firebase-config";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import { Box, Grid, Stack } from "@mui/material";
+import UserDataContext from "../../context/UserDataContext";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -12,55 +13,62 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
   const user = useContext(UserContext);
+  const userData = useContext(UserDataContext);
 
   useEffect(() => {
-    if (user) {
+    if (user && userData) {
       navigate("/");
     }
-  }, [user, navigate]);
+  }, [user, userData, navigate]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      const user = userCredential.user;
-      await updateProfile(user, { displayName: username });
-      const response = await axios.post("http://localhost:5000/users", {
-          id: user.uid,
-          username: username,
-          clothes: ["RTJdhJTgOhegZ7K9VLBa","Wyq9rdqXYqUXjgTWk5Fh","tqaJQq6sHqLDchudGXix"],
-          outfits: {
-              Lesley: {
-                  hats: {},
-                  glasses: {},
-                  overcoats: {},
-                  tops: {},
-                  bottoms: {},
-                  hosiery: {},
-                  shoes: {},
-                  dresses: {},
-              },
-              Tiva: {
-                  hats: {},
-                  glasses: {},
-                  overcoats: {},
-                  tops: {},
-                  bottoms: {},
-                  hosiery: {},
-                  shoes: {},
-                  dresses: {},
-              },
-          },
-      });
-      console.log("User created", response.data);
-    } catch (error) {
-      console.error("Error signing up", error);
-    }
-  };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const credential = await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+            await auth.signOut();
+            const user = credential.user;
+            await updateProfile(user, { displayName: username });
+            const response = await axios.post("http://localhost:5000/users", {
+                id: user.uid,
+                username: username,
+                clothes: [
+                    "RTJdhJTgOhegZ7K9VLBa",
+                    "Wyq9rdqXYqUXjgTWk5Fh",
+                    "tqaJQq6sHqLDchudGXix",
+                ],
+                outfits: {
+                    Lesley: {
+                        hats: {},
+                        glasses: {},
+                        overcoats: {},
+                        tops: {},
+                        bottoms: {},
+                        hosiery: {},
+                        shoes: {},
+                        dresses: {},
+                    },
+                    Tiva: {
+                        hats: {},
+                        glasses: {},
+                        overcoats: {},
+                        tops: {},
+                        bottoms: {},
+                        hosiery: {},
+                        shoes: {},
+                        dresses: {},
+                    },
+                },
+            });
+            console.log("User created", response.data);
+            await signInWithEmailAndPassword(auth, email, password);
+        } catch (error) {
+            console.error("Error signing up", error);
+        }
+    };
 
   return (
     <Stack
