@@ -1,34 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import SpriteImage from "../SpriteImage";
-import axios from "axios";
+import YfusContext from "../../../context/YfusContext";
 
 const CharacterSprite = ({ name, face = 'front' }) => {
   const [sprite, setSprite] = useState(null);
+  const yfus = useContext(YfusContext);
 
   useEffect(() => {
-    axios
-        .get("http://localhost:5000/yfus")
-        .then((response) => {
-          const data = response.data;
-          const selectedSprite = data.find((yfu) => yfu["prenom"] === name);
-          if (selectedSprite) {
-            let imageUrl;
 
-            if (face === "front") {
-              imageUrl = selectedSprite["full-front-url"];
-            } else if (face === "back") {
-              imageUrl = selectedSprite["full-back-url"];
-            } else if (face === "left") {
-              imageUrl = selectedSprite["full-left-url"];
-            } else if (face === "right") {
-              imageUrl = selectedSprite["full-right-url"];
-            }
+      const selectedSprite = yfus.find((yfu) => yfu["prenom"] === name);
+      if (selectedSprite) {
+        let imageUrl;
 
-            setSprite(imageUrl);
-          }
-        })
-        .catch((error) => console.error(error));
-  }, [name, face]);
+        if (face === "front") {
+          imageUrl = selectedSprite["full-front-url"];
+        } else if (face === "back") {
+          imageUrl = selectedSprite["full-back-url"];
+        } else if (face === "left") {
+          imageUrl = selectedSprite["full-left-url"];
+        } else if (face === "right") {
+          imageUrl = selectedSprite["full-right-url"];
+        }
+
+        setSprite(imageUrl);
+      }
+
+  }, [name, face, yfus]);
 
   if (!sprite)
       return <div>Loading...</div>
