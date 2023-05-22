@@ -51,6 +51,7 @@ const Home = ({ outfits, onOutfitsUpdate }) => {
     const {userData} = useContext(UserDataContext);
     const allClothes = useContext(ClothesContext);
     const yfus = useContext(YfusContext);
+    const currentYfuInfos = yfus.find((yfu) => yfu["prenom"] === currentCharacter);
 
     useEffect(() => {
         if (userData["clothes"]) {
@@ -213,13 +214,13 @@ const Home = ({ outfits, onOutfitsUpdate }) => {
                             >
                                 <Box>
                                     <Box>
-                                        <b>Height :</b> 164cm
+                                        <b>Height :</b> {currentYfuInfos ? currentYfuInfos["height"]+" cm" : "loading..."}
                                     </Box>
                                     <Box>
-                                        <b>Likes :</b> Chocolate, Travel
+                                        <b>Likes :</b> {currentYfuInfos ? currentYfuInfos["likes"].join(" ") : "loading..."}
                                     </Box>
                                     <Box>
-                                        <b>Skills :</b> Dances, Sings
+                                        <b>Skills :</b> {currentYfuInfos ? currentYfuInfos["skills"].join(" ") : "loading..."}
                                     </Box>
                                 </Box>
                                 <Box
@@ -233,10 +234,7 @@ const Home = ({ outfits, onOutfitsUpdate }) => {
                                         height: "100%",
                                     }}
                                 >
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                    laboris nisi ut aliquip ex ea commodo consequat.
+                                    {currentYfuInfos ? currentYfuInfos["phrase"] : "loading..."}
                                 </Box>
                             </Paper>
                         </Box>
