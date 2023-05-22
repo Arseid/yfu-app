@@ -37,53 +37,62 @@ const Gacha = () => {
     return selectedArray[selectedCloth];
   };
 
-  const roll1time = () => {
-    if (userData["coins"] === 0) alert("Not enough coins to roll.");
-    else {
-      const item = getRandomCloth();
-      let newCoinValue = userData["coins"];
+    const roll1time = () => {
+        if (userData["coins"] === 0) alert("Not enough coins to roll.");
+        else {
+            const item = getRandomCloth();
 
-      // Check if cloth already acquired
-      if (userData["clothes"].includes(item["id"])) {
-        // Increase coins based on grade if already acquired
-        switch (item["grade"]) {
-          case 3:
-            break;
-          case 4:
-            newCoinValue += 1;
-            break;
-          case 5:
-            newCoinValue += 2;
-            break;
-          default:
-            console.error("Invalid item grade:", item["grade"]);
-            return;
+            /* Ancient feature where the user gets compensated if he draws a duplicate
+            let newCoinValue = userData["coins"];
+
+            // Check if cloth already acquired
+            if (userData["clothes"].includes(item["id"])) {
+              // Increase coins based on grade if already acquired
+              switch (item["grade"]) {
+                case 3:
+                  break;
+                case 4:
+                  newCoinValue += 1;
+                  break;
+                case 5:
+                  newCoinValue += 2;
+                  break;
+                default:
+                  console.error("Invalid item grade:", item["grade"]);
+                  return;
+              }
+            } else {
+              // Remove 1 coin and add the item to the user's clothes
+              newCoinValue -= 1;
+              userData["clothes"].push(item["id"]);
+            }
+             */
+
+            let newCoinValue = userData["coins"] - 1;
+
+            if (!userData["clothes"].includes(item["id"])) {
+                userData["clothes"].push(item["id"]);
+            }
+
+            axios
+                .put(`http://localhost:5000/users/${user["uid"]}`, {
+                    coins: newCoinValue,
+                    clothes: userData["clothes"],
+                })
+                .then(() => {
+                    setUserData((prevUserData) => ({
+                        ...prevUserData,
+                        coins: newCoinValue,
+                        clothes: userData["clothes"],
+                    }));
+                })
+                .catch((error) => {
+                    console.error("Failed to update user's data:", error);
+                });
+
+            setGachaResult(item);
         }
-      } else {
-        // Remove 1 coin and add the item to the user's clothes
-        newCoinValue -= 1;
-        userData["clothes"].push(item["id"]);
-      }
-
-      axios
-        .put(`http://localhost:5000/users/${user["uid"]}`, {
-          coins: newCoinValue,
-          clothes: userData["clothes"],
-        })
-        .then(() => {
-          setUserData((prevUserData) => ({
-            ...prevUserData,
-            coins: newCoinValue,
-            clothes: userData["clothes"],
-          }));
-        })
-        .catch((error) => {
-          console.error("Failed to update user's data:", error);
-        });
-
-      setGachaResult(item);
-    }
-  };
+    };
 
   return (
     <Box
