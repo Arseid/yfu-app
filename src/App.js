@@ -170,7 +170,7 @@ function App() {
                                 height: "100%", p: '1rem', pb: '7rem',
                                 boxSizing: 'border-box'
                             }}>
-                                        {user && userData ? (
+                                        {user && userData && yfus && allClothes ? (
                                             <Routes>
                                                 <Route path='/' element={<Home outfits={outfits} onOutfitsUpdate={outfitsUpdateHandler}/>} />
                                                 <Route path='/minigames' element={<Minigames />} />
@@ -188,7 +188,7 @@ function App() {
                                         )}
                                     </Box>
                                 <>
-                                    {user && userData && allClothes &&  (<Box
+                                    {user && userData && yfus && allClothes &&  (<Box
                                 className="nav"
                                 sx={{
                                     p: "1rem",
