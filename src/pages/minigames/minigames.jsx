@@ -104,16 +104,18 @@ function Minigames() {
         ))}
       </Grid>
       {winner && (
-        <div>
-          {winner === "draw" ? (
-            <p>It's a draw!</p>
-          ) : (
-            <p>You win! You gain a coin, you now have {userData["coins"]} coins! Good luck for your draws!</p>
-          )}
-          <Button variant="contained" onClick={handleReset}>
-            Reset
-          </Button>
-        </div>
+          <div>
+            {winner === "draw" ? (
+                <p>It's a draw!</p>
+            ) : winner === "X" ? (
+                <p>You win! You gain a coin, you now have {userData["coins"]} coins! Good luck for your draws!</p>
+            ) : (
+                <p>You lose! Better luck next time!</p>
+            )}
+            <Button variant="contained" onClick={handleReset}>
+              Reset
+            </Button>
+          </div>
       )}
     </div>
   );
