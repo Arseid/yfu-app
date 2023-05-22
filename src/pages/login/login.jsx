@@ -3,6 +3,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../config/firebase-config";
 import { Link } from "react-router-dom";
 import { Box, Grid, Stack } from "@mui/material";
+import logo from '../../assets/brand/svg/yfu-logo.svg';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -30,6 +31,7 @@ const Login = () => {
       className="Login"
       sx={{ width: "100%", height: "100%" }}
     >
+      <img alt="logo" src={logo} height='150px' style={{marginBottom:'4rem'}} />
       <form onSubmit={handleSubmit} style={{ width: "100%" }}>
         <Stack
           alignItems={"center"}
@@ -37,7 +39,7 @@ const Login = () => {
           spacing={2}
           sx={{ width: "100%", height: "100%" }}
         >
-          <Box sx={{ fontSize: "2.5rem" }}>Logging in</Box>
+          <Box sx={{ fontSize: "2rem", fontWeight:'bold' }}>Logging in</Box>
           <input
             type="email"
             placeholder="Email"

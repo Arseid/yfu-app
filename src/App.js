@@ -21,6 +21,8 @@ import { VolumeOff, VolumeUp } from "@mui/icons-material";
 import axios from "axios";
 import ClothesContext from "./context/ClothesContext";
 import YfusContext from "./context/YfusContext";
+import Profile from './pages/profile/profile';
+import About from "./pages/about/about";
 
 function App() {
     const [burgerMenuAnchorEl, setBurgerMenuAnchorEl] = useState(null);
@@ -31,13 +33,7 @@ function App() {
     const handleBurgerMenuClose = (action) => {
         setBurgerMenuAnchorEl(null);
 
-        if (action === 'profile') {
-            console.log('Profile clicked');
-        }
-        else if (action === 'about') {
-            console.log('About clicked');
-        }
-        else if (action === 'logout') {
+        if (action === 'logout') {
             auth.signOut()
                 .then(() => {
                     console.log('User signed out successfully');
@@ -177,6 +173,8 @@ function App() {
                                             <Routes>
                                                 <Route path='/' element={<Home outfits={outfits} onOutfitsUpdate={outfitsUpdateHandler}/>} />
                                                 <Route path='/minigames' element={<Minigames />} />
+                                                <Route path='/profile' element={<Profile />} />
+                                                <Route path='/about' element={<About />} />
                                                 <Route path='/gacha' element={<Gacha />} />
                                                 <Route path='/signup' element={<Signup />} />
                                             </Routes>
@@ -227,8 +225,8 @@ function App() {
                                                 'aria-labelledby': 'basic-button',
                                             }}
                                         >
-                                            <MenuItem onClick={() => handleBurgerMenuClose('profile')}>Profile</MenuItem>
-                                            <MenuItem onClick={() => handleBurgerMenuClose('about')}>About</MenuItem>
+                                            <Link to='/profile' style={{textDecoration: "none", color: "black"}}><MenuItem onClick={() => handleBurgerMenuClose('profile')}>Profile</MenuItem></Link>
+                                            <Link to='/about' style={{textDecoration: "none", color: "black"}}><MenuItem onClick={() => handleBurgerMenuClose('about')}>About</MenuItem></Link>
                                             <MenuItem onClick={() => handleBurgerMenuClose('logout')}>Logout</MenuItem>
                                         </Menu>
                                     </Box>)}

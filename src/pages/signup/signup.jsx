@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import { Box, Grid, Stack } from "@mui/material";
 import UserDataContext from "../../context/UserDataContext";
+import logo from '../../assets/brand/svg/yfu-logo.svg';
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -78,6 +79,7 @@ const Signup = () => {
       className="Login"
       sx={{ width: "100%", height: "100%" }}
     >
+      <img alt="logo" src={logo} height='150px' style={{marginBottom:'4rem'}} />
       <form onSubmit={handleSubmit} style={{ width: "100%" }}>
         <Stack
           alignItems={"center"}
@@ -85,7 +87,7 @@ const Signup = () => {
           spacing={2}
           sx={{ width: "100%", height: "100%" }}
         >
-          <Box sx={{fontSize:'2.5rem'}}>Signing up</Box>
+          <Box sx={{fontSize:'2rem', fontWeight:'bold'}}>Signing up</Box>
           <input
             type="text"
             placeholder="Username"
