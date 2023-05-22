@@ -1,5 +1,5 @@
 import { OfflineBolt } from "@mui/icons-material";
-import { Box, Button, IconButton, Stack } from "@mui/material";
+import { Box, IconButton, Stack } from "@mui/material";
 import React, { useState, useContext } from "react";
 import ClothesContext from "../../context/ClothesContext";
 import UserDataContext from "../../context/UserDataContext";
