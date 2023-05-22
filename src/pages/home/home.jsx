@@ -1,11 +1,11 @@
 import {Box, Button, Grid, NativeSelect, Paper, Stack} from "@mui/material";
-import React, {useEffect} from "react";
+import React, {useEffect, useContext, useState} from "react";
 import CharacterHeadButton from "../../components/sprites/characters/CharacterHeadButton";
 import DressingView from "../../components/sprites/DressingView";
-import {useState} from "react";
 import ClothingSprite from "../../components/sprites/clothes/ClothingSprite";
 import UserDataContext from "../../context/UserDataContext";
 import ClothesContext from "../../context/ClothesContext";
+import YfusContext from "../../context/YfusContext";
 
 const clothesTypes = [
     "hats",
@@ -48,8 +48,9 @@ const Home = ({ outfits, onOutfitsUpdate }) => {
     const [currentCharacter, setCurrentCharacter] = useState("Lesley");
     const [face, setFace] = useState("front");
     const [inventoryClothesType, setInventoryClothesType] = useState(clothesTypes[0]);
-    const {userData} = React.useContext(UserDataContext);
-    const allClothes = React.useContext(ClothesContext);
+    const {userData} = useContext(UserDataContext);
+    const allClothes = useContext(ClothesContext);
+    const yfus = useContext(YfusContext);
 
     useEffect(() => {
         if (userData["clothes"]) {
