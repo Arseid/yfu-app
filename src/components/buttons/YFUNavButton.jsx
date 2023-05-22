@@ -10,7 +10,7 @@ import fi_sr_menu_burger from "../../assets/nav-icons/fi-sr-menu-burger.svg";
 import fi_rr_menu_burger from "../../assets/nav-icons/fi-rr-menu-burger.svg";
 import { useLocation } from "react-router-dom";
 
-const YFUNavButton = ({ pathname = undefined, tooltip = undefined }) => {
+const YFUNavButton = ({ pathname = undefined, tooltip = undefined, onClick}) => {
   let icon;
   const icon_variant = useLocation().pathname === pathname ? 1 : 0;
 
@@ -46,6 +46,7 @@ const YFUNavButton = ({ pathname = undefined, tooltip = undefined }) => {
         aria-label="upload picture"
         component="label"
         disableRipple
+        onClick={onClick}
         sx={{
           background: `radial-gradient(362.07% 362.07% at 68.71% -130.74%, rgba(255, 134, 177, 0.74) 44.61%, rgba(255, 78, 245, 0.74) 55.34%, rgba(109, 42, 193, 0.74) 66.93%)`,
           borderRadius: "1rem 1rem 1rem 1rem",
