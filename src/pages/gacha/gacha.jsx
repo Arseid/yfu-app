@@ -1,34 +1,79 @@
 import { OfflineBolt } from "@mui/icons-material";
 import { Box, IconButton, Stack } from "@mui/material";
-import React from "react";
+import React, { useState, useContext } from "react";
+import ClothesContext from "../../context/ClothesContext";
+import UserDataContext from "../../context/UserDataContext";
+import axios from "axios";
+import UserContext from "../../context/UserContext";
 
 const Gacha = () => {
-  const [gachaResult, setGachaResult] = React.useState(null);
+    const [gachaResult, setGachaResult] = useState({});
+    const allClothes = useContext(ClothesContext);
+    const { userData, setUserData } = useContext(UserDataContext);
+    const user = useContext(UserContext);
 
-  const listTops = [
-    { name: "Tshirt", probability: 0.6 },
-    { name: "Sweater", probability: 0.3 },
-    { name: "Turtleneck", probability: 0.1 },
-  ];
-  // const listBots = ["Jean","Sweat Pants","Costume Pants"];
-  // const listShoes = ["Airforce 1","Doc Martens","Stan Smith"];
-  // const listAll = [listTops,listBots,listShoes];
+    const getRandomCloth = () => {
+        const grade3Clothes = allClothes.filter(cloth => cloth["grade"] === 3);
+        const grade4Clothes = allClothes.filter(cloth => cloth["grade"] === 4);
+        const grade5Clothes = allClothes.filter(cloth => cloth["grade"] === 5);
 
-  const letsGacha = (itemList) => {
-    const chance = Math.random();
-    let cumulativeProbability = 0;
-    for (const item of itemList) {
-      cumulativeProbability += item["probability"];
-      if (chance <= cumulativeProbability) {
-        return item;
+        const randomValue = Math.random();
+
+        let selectedArray;
+        if (randomValue < 0.6) { // 60% chance to select grade 3
+            selectedArray = grade3Clothes;
+        } else if (randomValue < 0.9) { // 30% chance to select grade 4
+            selectedArray = grade4Clothes;
+        } else { // 10% chance to select grade 5
+            selectedArray = grade5Clothes;
+        }
+
+        // Randomly select an item from the chosen array
+        const selectedCloth = Math.floor(Math.random() * selectedArray.length);
+        return selectedArray[selectedCloth];
+    };
+
+    const roll1time = () => {
+      if (userData["coins"] === 0) alert("Not enough coins to roll.")
+      else {
+          const item = getRandomCloth();
+          let newCoinValue = userData["coins"];
+
+          // Check if cloth already acquired
+          if (userData["clothes"].includes(item["id"])) {
+              // Increase coins based on grade if already acquired
+              switch(item["grade"]) {
+                  case 3:
+                      break;
+                  case 4:
+                      newCoinValue += 1;
+                      break;
+                  case 5:
+                      newCoinValue += 2;
+                      break;
+                  default:
+                      console.error("Invalid item grade:", item["grade"]);
+                      return;
+              }
+          }
+          else {
+              // Remove 1 coin and add the item to the user's clothes
+              newCoinValue -= 1;
+              userData["clothes"].push(item["id"]);
+          }
+
+          axios
+              .put(`http://localhost:5000/users/${user["uid"]}`, { coins: newCoinValue, clothes: userData["clothes"] })
+              .then(() => {
+                  setUserData(prevUserData => ({ ...prevUserData, coins: newCoinValue, clothes: userData["clothes"] }));
+              })
+              .catch((error) => {
+                  console.error("Failed to update user's data:", error);
+              });
+
+          setGachaResult(item);
       }
-    }
-  };
-
-  const roll1time = () => {
-    const item = letsGacha(listTops);
-    setGachaResult(item);
-  };
+    };
 
   return (
     <Box
@@ -133,7 +178,7 @@ const Gacha = () => {
                   lineHeight: "3rem",
                 }}
               >
-                450&nbsp;
+                  {userData["coins"]}&nbsp;
               </Box>
               <OfflineBolt
                 sx={{
