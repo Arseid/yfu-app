@@ -1,34 +1,42 @@
 import { OfflineBolt } from "@mui/icons-material";
-import { Box, Button, IconButton, Paper, Stack } from "@mui/material";
-import React from "react";
+import { Box, IconButton, Stack } from "@mui/material";
+import React, { useState, useContext } from "react";
+import ClothesContext from "../../context/ClothesContext";
 
 const Gacha = () => {
-  const [gachaResult, setGachaResult] = React.useState(null);
+  const [gachaResult, setGachaResult] = useState({});
+  const [coins, setCoins] = useState(50);
+  const allClothes = useContext(ClothesContext);
 
-  const listTops = [
-    { name: "Tshirt", probability: 0.6 },
-    { name: "Sweater", probability: 0.3 },
-    { name: "Turtleneck", probability: 0.1 },
-  ];
-  // const listBots = ["Jean","Sweat Pants","Costume Pants"];
-  // const listShoes = ["Airforce 1","Doc Martens","Stan Smith"];
-  // const listAll = [listTops,listBots,listShoes];
+    const getRandomCloth = () => {
+        const grade3Clothes = allClothes.filter(cloth => cloth["grade"] === 3);
+        const grade4Clothes = allClothes.filter(cloth => cloth["grade"] === 4);
+        const grade5Clothes = allClothes.filter(cloth => cloth["grade"] === 5);
 
-  const letsGacha = (itemList) => {
-    const chance = Math.random();
-    let cumulativeProbability = 0;
-    for (const item of itemList) {
-      cumulativeProbability += item["probability"];
-      if (chance <= cumulativeProbability) {
-        return item;
+        const randomValue = Math.random();
+
+        let selectedArray;
+        if (randomValue < 0.6) { // 60% chance to select grade 3
+            selectedArray = grade3Clothes;
+        } else if (randomValue < 0.9) { // 30% chance to select grade 4
+            selectedArray = grade4Clothes;
+        } else { // 10% chance to select grade 5
+            selectedArray = grade5Clothes;
+        }
+
+        // Randomly select an item from the chosen array
+        const selectedCloth = Math.floor(Math.random() * selectedArray.length);
+        return selectedArray[selectedCloth];
+    };
+
+    const roll1time = () => {
+      if (coins === 0) alert("Not enough coins to roll.")
+      else {
+          const item = getRandomCloth();
+          setGachaResult(item);
+          setCoins(coins - 1);
       }
-    }
-  };
-
-  const roll1time = () => {
-    const item = letsGacha(listTops);
-    setGachaResult(item);
-  };
+    };
 
   return (
     <Box
@@ -133,7 +141,7 @@ const Gacha = () => {
                   lineHeight: "3rem",
                 }}
               >
-                450&nbsp;
+                  {coins}&nbsp;
               </Box>
               <OfflineBolt
                 sx={{
