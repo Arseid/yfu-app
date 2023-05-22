@@ -75,7 +75,7 @@ const Gacha = () => {
             }
 
             axios
-                .put(`http://localhost:5000/users/${user["uid"]}`, {
+                .put(`${process.env.REACT_APP_YFU_SERVER_URL}/users/${user["uid"]}`, {
                     coins: newCoinValue,
                     clothes: userData["clothes"],
                 })

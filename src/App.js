@@ -81,7 +81,7 @@ function App() {
     const outfitsUpdateHandler = (newOutfits) => {
         setOutfits(newOutfits);
         axios
-            .put(`http://localhost:5000/users/${user["uid"]}`, { outfits: newOutfits })
+            .put(`${process.env.YFU_SERVER_URL}/users/${user["uid"]}`, { outfits: newOutfits })
             .catch((error) => {
                 console.error("Failed to update user current outfits:", error);
             });
@@ -91,7 +91,7 @@ function App() {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             if (currentUser) {
-                axios.get(`http://localhost:5000/users/${currentUser["uid"]}`)
+                axios.get(`${process.env.REACT_APP_YFU_SERVER_URL}/users/${currentUser["uid"]}`)
                     .then((res) => {
                         setUserData(res["data"]);
 
@@ -104,13 +104,13 @@ function App() {
                         console.error("Error fetching user data:", error);
                     });
 
-                axios.get("http://localhost:5000/clothes")
+                axios.get(`${process.env.REACT_APP_YFU_SERVER_URL}/clothes`)
                     .then((response) => {
                         setAllClothes(response["data"]);
                     })
                     .catch((error) => console.error(error));
 
-                axios.get("http://localhost:5000/yfus")
+                axios.get(`${process.env.REACT_APP_YFU_SERVER_URL}/yfus`)
                     .then((response) => {
                         setYfus(response["data"]);
                     })

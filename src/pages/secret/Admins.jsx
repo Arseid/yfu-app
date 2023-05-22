@@ -10,13 +10,13 @@ const Admins = () => {
     }, []);
 
     const getAdmins = () => {
-        axios.get('http://localhost:5000/admins')
+        axios.get(`${process.env.REACT_APP_YFU_SERVER_URL}/admins`)
             .then(response => setAdmins(response["data"]["admins"]))
             .catch(error => console.error('Error fetching admins:', error));
     };
 
     const addAdmin = (userId) => {
-        axios.post(`http://localhost:5000/admins/${userId}`)
+        axios.post(`${process.env.REACT_APP_YFU_SERVER_URL}/admins/${userId}`)
             .then(() => {
                 getAdmins();
                 setNewAdminId('');
@@ -25,7 +25,7 @@ const Admins = () => {
     };
 
     const removeAdmin = (userId) => {
-        axios.delete(`http://localhost:5000/admins/${userId}`)
+        axios.delete(`${process.env.REACT_APP_YFU_SERVER_URL}/admins/${userId}`)
             .then(() => getAdmins())
             .catch(error => console.error('Error removing admin:', error));
     };

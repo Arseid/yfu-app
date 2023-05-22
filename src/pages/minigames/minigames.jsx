@@ -62,7 +62,7 @@ function Minigames() {
 
           // Update coins in the backend
           axios
-            .put(`http://localhost:5000/users/${user["uid"]}`, {
+            .put(`${process.env.REACT_APP_YFU_SERVER_URL}/users/${user["uid"]}`, {
               coins: newCoins,
             })
             .catch((error) => {
@@ -146,7 +146,7 @@ function Minigames() {
                 variant="contained"
                 size="large"
                 onClick={() => handleClick(index)}
-                disabled={cell || winner ? true : false}
+                disabled={!!(cell || winner)}
                 fullWidth
                 sx={{
                   position: "relative",

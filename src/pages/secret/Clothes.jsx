@@ -10,19 +10,19 @@ const Clothes = () => {
     }, []);
 
     const getClothes = () => {
-        axios.get('http://localhost:5000/clothes')
+        axios.get(`${process.env.REACT_APP_YFU_SERVER_URL}/clothes`)
             .then(response => setClothes(response.data))
             .catch(error => console.error('Error fetching clothes:', error));
     };
 
     const getClothById = (id) => {
-        axios.get(`http://localhost:5000/clothes/${id}`)
+        axios.get(`${process.env.REACT_APP_YFU_SERVER_URL}/clothes/${id}`)
             .then(response => setSelectedCloth(response.data))
             .catch(error => console.error('Error fetching clothing item:', error));
     };
 
     const updateCloth = (id, cloth) => {
-        axios.put(`http://localhost:5000/clothes/${id}`, cloth)
+        axios.put(`${process.env.REACT_APP_YFU_SERVER_URL}/clothes/${id}`, cloth)
             .then(() => getClothes())
             .catch(error => console.error('Error updating clothing item:', error));
     };

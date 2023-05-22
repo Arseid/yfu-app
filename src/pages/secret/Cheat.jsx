@@ -14,7 +14,7 @@ const CheatPage = () => {
     const user = useContext(UserContext);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/admins")
+        axios.get(`${process.env.REACT_APP_YFU_SERVER_URL}/admins`)
             .then((response) => {
                 setAdminList(response["data"]["admins"]);
                 if (adminList.includes(user["uid"])) setIsAdmin(true);

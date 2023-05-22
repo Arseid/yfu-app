@@ -12,31 +12,31 @@ const Users = () => {
     }, []);
 
     const getUsers = () => {
-        axios.get('http://localhost:5000/users')
+        axios.get(`${process.env.REACT_APP_YFU_SERVER_URL}/users`)
             .then(response => setUsers(response.data))
             .catch(error => console.error('Error fetching users:', error));
     };
 
     const deleteUser = (id) => {
-        axios.delete(`http://localhost:5000/users/${id}`)
+        axios.delete(`${process.env.REACT_APP_YFU_SERVER_URL}/users/${id}`)
             .then(() => getUsers())
             .catch(error => console.error('Error deleting user:', error));
     };
 
     const updateUser = (id) => {
-        axios.put(`http://localhost:5000/users/${id}`, {username: selectedUser["username"], coins: selectedUser["coins"]})
+        axios.put(`${process.env.REACT_APP_YFU_SERVER_URL}/users/${id}`, {username: selectedUser["username"], coins: selectedUser["coins"]})
             .then(() => getUsers())
             .catch(error => console.error('Error deleting user:', error));
     }
 
     const addClothToUsers = (userId, clothId) => {
-        axios.post(`http://localhost:5000/users/${userId}/clothes/${clothId}`)
+        axios.post(`${process.env.REACT_APP_YFU_SERVER_URL}/users/${userId}/clothes/${clothId}`)
             .then(() => getUsers())
             .catch(error => console.error('Error deleting user:', error));
     }
 
     const deleteClothToUsers = (userId, clothId) => {
-        axios.delete(`http://localhost:5000/users/${userId}/clothes/${clothId}`)
+        axios.delete(`${process.env.REACT_APP_YFU_SERVER_URL}/users/${userId}/clothes/${clothId}`)
             .then(() => {
                 setSelectedUser(prevUser => ({...prevUser, clothes: prevUser.clothes.filter(cloth => cloth !== clothId)}));
                 getUsers();

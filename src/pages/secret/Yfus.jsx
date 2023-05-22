@@ -10,25 +10,25 @@ const Yfus = () => {
     }, []);
 
     const getYfus = () => {
-        axios.get('http://localhost:5000/yfus')
+        axios.get(`${process.env.REACT_APP_YFU_SERVER_URL}/yfus`)
             .then(response => setYfus(response.data))
             .catch(error => console.error('Error fetching yfus:', error));
     };
 
     const getYfuById = (id) => {
-        axios.get(`http://localhost:5000/yfus/${id}`)
+        axios.get(`${process.env.REACT_APP_YFU_SERVER_URL}/yfus/${id}`)
             .then(response => setSelectedYfu(response.data))
             .catch(error => console.error('Error fetching yfu:', error));
     };
 
     const updateYfu = (id, yfu) => {
-        axios.put(`http://localhost:5000/yfus/${id}`, yfu)
+        axios.put(`${process.env.REACT_APP_YFU_SERVER_URL}/yfus/${id}`, yfu)
             .then(() => getYfus())
             .catch(error => console.error('Error updating yfu:', error));
     };
 
     const deleteYfu = (id) => {
-        axios.delete(`http://localhost:5000/yfus/${id}`)
+        axios.delete(`${process.env.REACT_APP_YFU_SERVER_URL}/yfus/${id}`)
             .then(() => getYfus())
             .catch(error => console.error('Error deleting yfu:', error));
     };

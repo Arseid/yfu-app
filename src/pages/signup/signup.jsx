@@ -33,7 +33,7 @@ const Signup = () => {
             await auth.signOut();
             const user = credential.user;
             await updateProfile(user, { displayName: username });
-            const response = await axios.post("http://localhost:5000/users", {
+            const response = await axios.post(`${process.env.REACT_APP_YFU_SERVER_URL}/users`, {
                 id: user.uid,
                 username: username,
                 coins: 5,
