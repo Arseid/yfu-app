@@ -27,16 +27,31 @@ const About = () => {
           py: "2rem",
           boxShadow: "none",
           overflow: "auto",
-          "& *": { fontSize: "1.5rem" },
+          "& *": {
+            fontSize: { xs: "1rem", md: "1.25rem" },
+          },
         }}
       >
         <Box>
           <p>
-            Introducing YFu, a game created in 2023 by Ryan Marin and
-            Yves-Robert Estrada as part of their development project at Ynov
-            Sophia Campus. The name YFu is a combination of the "Y" from Ynov
-            school and the Chinese word "Fu," which means luck, while also
-            evoking the term "waifu."
+            Introducing YFu, a game created in 2023 by&nbsp;
+            <a
+              href="https://github.com/Ryan-MARIN"
+              style={{ textDecoration: "none" }}
+            >
+              Ryan Marin
+            </a>
+            &nbsp; and &nbsp;
+            <a
+              href="https://github.com/Arseid"
+              style={{ textDecoration: "none" }}
+            >
+              Yves-Robert
+            </a>
+            &nbsp; Estrada as part of their development project at Ynov Sophia
+            Campus. The name YFu is a combination of the "Y" from Ynov school
+            and the Chinese word "Fu," which means luck, while also evoking the
+            term "waifu."
           </p>
 
           <p>
@@ -55,8 +70,10 @@ const About = () => {
             Please note that the copyright for the game belongs to Ryan Marin
             and Yves-Robert Estrada, the creators of the game in 2023. The
             background music used is "Kawaii!" by Bad Snacks, with support from
-            RFM - NCM. You can listen to the music here:
-            <a href="https://bit.ly/3f1GFyN">https://bit.ly/3f1GFyN</a>
+            RFM - NCM.&nbsp;
+            <a href="https://bit.ly/3f1GFyN" style={{ textDecoration: "none" }}>
+              You can listen to the music here.
+            </a>
           </p>
         </Box>
       </Paper>

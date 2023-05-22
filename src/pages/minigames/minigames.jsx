@@ -1,9 +1,13 @@
 import React, { useState, useContext } from "react";
-import { Grid, Button, Stack, Box } from "@mui/material";
+import { Grid, Button, Stack, Box, Paper } from "@mui/material";
 import UserDataContext from "../../context/UserDataContext";
 import axios from "axios";
 import UserContext from "../../context/UserContext";
-import { Close as CrossIcon, FavoriteBorder } from "@mui/icons-material";
+import {
+  Close as CrossIcon,
+  FavoriteBorder,
+  OfflineBolt,
+} from "@mui/icons-material";
 
 function Minigames() {
   const [board, setBoard] = useState(Array(9).fill(null));
@@ -86,7 +90,47 @@ function Minigames() {
 
   return (
     <Stack justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
-      <Box>
+      <Paper
+        sx={{
+          px: "3rem",
+          py: "1rem",
+          borderRadius: "2rem",
+          position: "absolute",
+          top:'2rem',
+          zIndex:'1'
+        }}
+      >
+        <Stack
+          alignItems={"center"}
+          justifyContent={"center"}
+          sx={{
+            position: "relative",
+          }}
+        >
+          <Box sx={{ fontSize: "1.25rem" }}>Your coins</Box>
+          <Stack
+            alignItems={"center"}
+            justifyContent={"center"}
+            direction={"row"}
+          >
+            <Box
+              sx={{
+                fontSize: "2rem",
+                lineHeight: "2rem",
+              }}
+            >
+              {userData["coins"]}&nbsp;
+            </Box>
+            <OfflineBolt
+              sx={{
+                color: "orange",
+                fontSize: "2rem",
+              }}
+            />
+          </Stack>
+        </Stack>
+      </Paper>
+      <Box sx={{position:'absolute'}}>
         <Grid
           container
           spacing={1}
@@ -143,6 +187,8 @@ function Minigames() {
             width: "50%",
             maxWidth: "800px",
             borderRadius: "4rem",
+            zIndex: "1",
+            boxShadow: "0 0 20px 10px #F7F5",
           }}
         >
           <Box sx={{ textAlign: "center" }}>
