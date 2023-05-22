@@ -1,5 +1,5 @@
 import { OfflineBolt } from "@mui/icons-material";
-import { Box, Button, IconButton, Paper, Stack } from "@mui/material";
+import { Box, IconButton, Stack } from "@mui/material";
 import React from "react";
 
 const Gacha = () => {
