@@ -33,13 +33,7 @@ function App() {
     const handleBurgerMenuClose = (action) => {
         setBurgerMenuAnchorEl(null);
 
-        if (action === 'profile') {
-            console.log('Profile clicked');
-        }
-        else if (action === 'about') {
-            console.log('About clicked');
-        }
-        else if (action === 'logout') {
+        if (action === 'logout') {
             auth.signOut()
                 .then(() => {
                     console.log('User signed out successfully');
@@ -231,8 +225,8 @@ function App() {
                                                 'aria-labelledby': 'basic-button',
                                             }}
                                         >
-                                            <MenuItem onClick={() => handleBurgerMenuClose('profile')}>Profile</MenuItem>
-                                            <MenuItem onClick={() => handleBurgerMenuClose('about')}>About</MenuItem>
+                                            <Link to='/profile' style={{textDecoration: "none", color: "black"}}><MenuItem onClick={() => handleBurgerMenuClose('profile')}>Profile</MenuItem></Link>
+                                            <Link to='/about' style={{textDecoration: "none", color: "black"}}><MenuItem onClick={() => handleBurgerMenuClose('about')}>About</MenuItem></Link>
                                             <MenuItem onClick={() => handleBurgerMenuClose('logout')}>Logout</MenuItem>
                                         </Menu>
                                     </Box>)}
