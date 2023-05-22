@@ -51,7 +51,7 @@ const Home = ({ outfits, onOutfitsUpdate }) => {
     const {userData} = useContext(UserDataContext);
     const allClothes = useContext(ClothesContext);
     const yfus = useContext(YfusContext);
-    const currentYfuInfos = yfus.find((yfu) => yfu["prenom"] === currentCharacter);
+    const currentYfuInfos = yfus && yfus.length > 0 ? yfus.find((yfu) => yfu["prenom"] === currentCharacter) : null;
 
     useEffect(() => {
         if (userData["clothes"]) {
