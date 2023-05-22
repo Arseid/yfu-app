@@ -217,10 +217,10 @@ const Home = ({ outfits, onOutfitsUpdate }) => {
                                         <b>Height :</b> {currentYfuInfos ? currentYfuInfos["height"]+" cm" : "loading..."}
                                     </Box>
                                     <Box>
-                                        <b>Likes :</b> {currentYfuInfos ? currentYfuInfos["likes"].join(" ") : "loading..."}
+                                        <b>Likes :</b> {currentYfuInfos ? currentYfuInfos["likes"].join(", ") : "loading..."}
                                     </Box>
                                     <Box>
-                                        <b>Skills :</b> {currentYfuInfos ? currentYfuInfos["skills"].join(" ") : "loading..."}
+                                        <b>Skills :</b> {currentYfuInfos ? currentYfuInfos["skills"].join(", ") : "loading..."}
                                     </Box>
                                 </Box>
                                 <Box
