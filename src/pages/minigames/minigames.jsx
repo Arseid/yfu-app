@@ -1,9 +1,13 @@
 import React, { useState, useContext } from "react";
-import { Grid, Button, Stack, Box } from "@mui/material";
+import { Grid, Button, Stack, Box, Paper } from "@mui/material";
 import UserDataContext from "../../context/UserDataContext";
 import axios from "axios";
 import UserContext from "../../context/UserContext";
-import { Close as CrossIcon, FavoriteBorder } from "@mui/icons-material";
+import {
+  Close as CrossIcon,
+  FavoriteBorder,
+  OfflineBolt,
+} from "@mui/icons-material";
 
 function Minigames() {
   const [board, setBoard] = useState(Array(9).fill(null));
@@ -86,12 +90,55 @@ function Minigames() {
 
   return (
     <Stack justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
-      <Box>
+      <Paper
+        sx={{
+          px: "3rem",
+          py: "1rem",
+          borderRadius: "2rem",
+          position: "absolute",
+          top:'2rem',
+          zIndex:'1'
+        }}
+      >
+        <Stack
+          alignItems={"center"}
+          justifyContent={"center"}
+          sx={{
+            position: "relative",
+          }}
+        >
+          <Box sx={{ fontSize: "1.25rem" }}>Your coins</Box>
+          <Stack
+            alignItems={"center"}
+            justifyContent={"center"}
+            direction={"row"}
+          >
+            <Box
+              sx={{
+                fontSize: "2rem",
+                lineHeight: "2rem",
+              }}
+            >
+              {userData["coins"]}&nbsp;
+            </Box>
+            <OfflineBolt
+              sx={{
+                color: "orange",
+                fontSize: "2rem",
+              }}
+            />
+          </Stack>
+        </Stack>
+      </Paper>
+      <Box sx={{position:'absolute'}}>
         <Grid
           container
           spacing={1}
           justifyContent="center"
-          sx={{ width: "500px", height: "500px" }}
+          sx={{
+            width: { xs: "400px", sm: "500px" },
+            height: { xs: "400px", sm: "500px" },
+          }}
         >
           {board.map((cell, index) => (
             <Grid item key={index} xs={4}>
@@ -99,12 +146,12 @@ function Minigames() {
                 variant="contained"
                 size="large"
                 onClick={() => handleClick(index)}
-                disabled={cell || winner}
+                disabled={cell || winner ? true : false}
                 fullWidth
                 sx={{
                   position: "relative",
                   bgcolor: index % 2 === 0 ? "#F7F" : "#FCE",
-                  borderRadius: "2rem",
+                  borderRadius: { xs: "1.5rem", sm: "2rem" },
                   border: "0.25rem solid #FFF",
                   height: "100%",
                   boxSizing: "border-box",
@@ -135,23 +182,27 @@ function Minigames() {
             justifyContent: "center",
             alignItems: "center",
             bgcolor: "#FFF",
-            pb: "1rem",
+            p: "1rem",
             m: "2rem",
             width: "50%",
             maxWidth: "800px",
-            borderRadius:'4rem'
+            borderRadius: "4rem",
+            zIndex: "1",
+            boxShadow: "0 0 20px 10px #F7F5",
           }}
         >
-          {winner === "draw" ? (
-            <p>It's a draw!</p>
-          ) : winner === "O" ? (
-            <p>
-              You win! You gain a coin, you now have {userData["coins"]} coins!
-              Good luck for your draws!
-            </p>
-          ) : (
-            <p>You lose! Better luck next time!</p>
-          )}
+          <Box sx={{ textAlign: "center" }}>
+            {winner === "draw" && <>It's a draw!</>}
+
+            {winner === "O" && (
+              <>
+                You win! You gain a coin, you now have {userData["coins"]}&nbsp;
+                coins! Good luck for your draws!
+              </>
+            )}
+
+            {winner === "X" && <>You lose! Better luck next time!</>}
+          </Box>
           <Button
             variant="contained"
             onClick={handleReset}
