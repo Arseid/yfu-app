@@ -2,11 +2,12 @@ import React, {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import UserContext from "../../context/UserContext";
 import {MenuItem, Select} from "@mui/material";
+import Users from "./Users";
 
 const AdminPage = () => {
     const [isAdmin, setIsAdmin] = useState(false);
     const [adminList, setAdminList] = useState([]);
-    const [selectedData, setSelectedData] = useState(null);
+    const [selectedData, setSelectedData] = useState("users");
     const user = useContext(UserContext);
 
     useEffect(() => {
@@ -30,16 +31,14 @@ const AdminPage = () => {
         <div>
             <h1>Welcome, admin!</h1>
             <span>Data to interact with:</span>
-            <Select defaultValue="Data to temper with" onChange={handleChange} style={{minWidth: 100, marginLeft: "15px"}}>
+            <Select defaultValue="users" onChange={handleChange} style={{minWidth: 100, marginLeft: "15px"}}>
                 <MenuItem value="users">Users</MenuItem>
                 <MenuItem value="admins">Admins</MenuItem>
                 <MenuItem value="clothes">Clothes</MenuItem>
                 <MenuItem value="yfus">Yfus</MenuItem>
             </Select>
             {selectedData === "users" &&
-                <div>
-                    Users data
-                </div>
+                <Users/>
             }
             {selectedData === "admins" &&
                 <div>
