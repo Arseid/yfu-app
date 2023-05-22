@@ -2,11 +2,15 @@ import { OfflineBolt } from "@mui/icons-material";
 import { Box, IconButton, Stack } from "@mui/material";
 import React, { useState, useContext } from "react";
 import ClothesContext from "../../context/ClothesContext";
+import UserDataContext from "../../context/UserDataContext";
+import axios from "axios";
+import UserContext from "../../context/UserContext";
 
 const Gacha = () => {
-  const [gachaResult, setGachaResult] = useState({});
-  const [coins, setCoins] = useState(50);
-  const allClothes = useContext(ClothesContext);
+    const [gachaResult, setGachaResult] = useState({});
+    const allClothes = useContext(ClothesContext);
+    const { userData, setUserData } = useContext(UserDataContext);
+    const user = useContext(UserContext);
 
     const getRandomCloth = () => {
         const grade3Clothes = allClothes.filter(cloth => cloth["grade"] === 3);
@@ -30,11 +34,18 @@ const Gacha = () => {
     };
 
     const roll1time = () => {
-      if (coins === 0) alert("Not enough coins to roll.")
+      if (userData["coins"] === 0) alert("Not enough coins to roll.")
       else {
           const item = getRandomCloth();
+          axios
+              .put(`http://localhost:5000/users/${user["uid"]}`, { coins: userData["coins"]-1 })
+              .then(() => {
+                  setUserData(prevUserData => ({ ...prevUserData, coins: prevUserData["coins"] - 1 }));
+              })
+              .catch((error) => {
+                  console.error("Failed to update user's coins:", error);
+              });
           setGachaResult(item);
-          setCoins(coins - 1);
       }
     };
 
@@ -141,7 +152,7 @@ const Gacha = () => {
                   lineHeight: "3rem",
                 }}
               >
-                  {coins}&nbsp;
+                  {userData["coins"]}&nbsp;
               </Box>
               <OfflineBolt
                 sx={{

@@ -131,7 +131,7 @@ function App() {
 
     return (
         <UserContext.Provider value={user}>
-            <UserDataContext.Provider value={userData}>
+            <UserDataContext.Provider value={{ userData, setUserData }}>
                 <ClothesContext.Provider value={allClothes}>
                     <BrowserRouter>
                         <Stack
