@@ -227,7 +227,7 @@ function App() {
                                         >
                                             <Link to='/profile' style={{textDecoration: "none", color: "black"}}><MenuItem onClick={() => handleBurgerMenuClose('profile')}>Profile</MenuItem></Link>
                                             <Link to='/about' style={{textDecoration: "none", color: "black"}}><MenuItem onClick={() => handleBurgerMenuClose('about')}>About</MenuItem></Link>
-                                            <MenuItem onClick={() => handleBurgerMenuClose('logout')}>Logout</MenuItem>
+                                            <Link to='/' style={{textDecoration: "none", color: "black"}}><MenuItem onClick={() => handleBurgerMenuClose('logout')}>Logout</MenuItem></Link>
                                         </Menu>
                                     </Box>)}
                                 </>
