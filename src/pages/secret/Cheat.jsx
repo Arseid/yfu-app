@@ -3,8 +3,9 @@ import axios from "axios";
 import UserContext from "../../context/UserContext";
 import {MenuItem, Select} from "@mui/material";
 import Users from "./Users";
+import Admins from "./Admins";
 
-const AdminPage = () => {
+const CheatPage = () => {
     const [isAdmin, setIsAdmin] = useState(false);
     const [adminList, setAdminList] = useState([]);
     const [selectedData, setSelectedData] = useState("users");
@@ -41,9 +42,7 @@ const AdminPage = () => {
                 <Users/>
             }
             {selectedData === "admins" &&
-                <div>
-                    Admins data
-                </div>
+                <Admins/>
             }
             {selectedData === "clothes" &&
                 <div>
@@ -59,4 +58,4 @@ const AdminPage = () => {
     );
 };
 
-export default AdminPage;
+export default CheatPage;
