@@ -130,15 +130,46 @@ function Minigames() {
         </Grid>
       </Box>
       {winner && (
-        <Stack sx={{justifyContent:'center', alignItems:'center'}}>
+        <Stack
+          sx={{
+            justifyContent: "center",
+            alignItems: "center",
+            bgcolor: "#FFF",
+            pb: "1rem",
+            m: "2rem",
+            width: "50%",
+            maxWidth: "800px",
+            borderRadius:'4rem'
+          }}
+        >
           {winner === "draw" ? (
-                <p>It's a draw!</p>
-            ) : winner === "X" ? (
-                <p>You win! You gain a coin, you now have {userData["coins"]} coins! Good luck for your draws!</p>
-            ) : (
-                <p>You lose! Better luck next time!</p>
-            )}
-          <Button variant="contained" onClick={handleReset}>
+            <p>It's a draw!</p>
+          ) : winner === "O" ? (
+            <p>
+              You win! You gain a coin, you now have {userData["coins"]} coins!
+              Good luck for your draws!
+            </p>
+          ) : (
+            <p>You lose! Better luck next time!</p>
+          )}
+          <Button
+            variant="contained"
+            onClick={handleReset}
+            sx={{
+              bgcolor: "#F7F",
+              fontFamily: "inherit",
+              fontSize: "1.5rem",
+              py: "0",
+              textTransform: "none",
+              boxShadow: "none",
+              borderRadius: "100px",
+              maxWidth: "10rem",
+              "&:hover": {
+                bgcolor: "#F7F",
+                boxShadow: "0 0 0 0.25rem #FFF",
+              },
+            }}
+          >
             Reset
           </Button>
         </Stack>
