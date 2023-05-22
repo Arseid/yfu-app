@@ -35,6 +35,7 @@ const Signup = () => {
             const response = await axios.post("http://localhost:5000/users", {
                 id: user.uid,
                 username: username,
+                coins: 5,
                 clothes: [
                     "RTJdhJTgOhegZ7K9VLBa",
                     "Wyq9rdqXYqUXjgTWk5Fh",
