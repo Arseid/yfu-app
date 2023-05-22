@@ -5,6 +5,7 @@ import {MenuItem, Select} from "@mui/material";
 import Users from "./Users";
 import Admins from "./Admins";
 import Yfus from "./Yfus";
+import Clothes from "./Clothes";
 
 const CheatPage = () => {
     const [isAdmin, setIsAdmin] = useState(false);
@@ -46,9 +47,7 @@ const CheatPage = () => {
                 <Admins/>
             }
             {selectedData === "clothes" &&
-                <div>
-                    Clothes data
-                </div>
+                <Clothes/>
             }
             {selectedData === "yfus" &&
                 <Yfus/>
