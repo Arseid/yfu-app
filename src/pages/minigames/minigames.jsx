@@ -91,7 +91,10 @@ function Minigames() {
           container
           spacing={1}
           justifyContent="center"
-          sx={{ width: "500px", height: "500px" }}
+          sx={{
+            width: { xs: "400px", sm: "500px" },
+            height: { xs: "400px", sm: "500px" },
+          }}
         >
           {board.map((cell, index) => (
             <Grid item key={index} xs={4}>
@@ -104,7 +107,7 @@ function Minigames() {
                 sx={{
                   position: "relative",
                   bgcolor: index % 2 === 0 ? "#F7F" : "#FCE",
-                  borderRadius: "2rem",
+                  borderRadius: { xs: "1.5rem", sm: "2rem" },
                   border: "0.25rem solid #FFF",
                   height: "100%",
                   boxSizing: "border-box",
@@ -135,23 +138,25 @@ function Minigames() {
             justifyContent: "center",
             alignItems: "center",
             bgcolor: "#FFF",
-            pb: "1rem",
+            p: "1rem",
             m: "2rem",
             width: "50%",
             maxWidth: "800px",
-            borderRadius:'4rem'
+            borderRadius: "4rem",
           }}
         >
-          {winner === "draw" ? (
-            <p>It's a draw!</p>
-          ) : winner === "O" ? (
-            <p>
-              You win! You gain a coin, you now have {userData["coins"]} coins!
-              Good luck for your draws!
-            </p>
-          ) : (
-            <p>You lose! Better luck next time!</p>
-          )}
+          <Box sx={{ textAlign: "center" }}>
+            {winner === "draw" ? (
+              <>It's a draw!</>
+            ) : winner === "O" ? (
+              <>
+                You win! You gain a coin, you now have {userData["coins"]}{" "}
+                coins! Good luck for your draws!
+              </>
+            ) : (
+              <>You lose! Better luck next time!</>
+            )}
+          </Box>
           <Button
             variant="contained"
             onClick={handleReset}
