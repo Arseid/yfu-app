@@ -48,7 +48,7 @@ const Home = ({ outfits, onOutfitsUpdate }) => {
     const [currentCharacter, setCurrentCharacter] = useState("Lesley");
     const [face, setFace] = useState("front");
     const [inventoryClothesType, setInventoryClothesType] = useState(clothesTypes[0]);
-    const userData = React.useContext(UserDataContext);
+    const {userData} = React.useContext(UserDataContext);
     const allClothes = React.useContext(ClothesContext);
 
     useEffect(() => {
