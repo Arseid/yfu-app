@@ -30,8 +30,31 @@ const Signup = () => {
       const user = userCredential.user;
       await updateProfile(user, { displayName: username });
       const response = await axios.post("http://localhost:5000/users", {
-        id: user.uid,
-        username: username,
+          id: user.uid,
+          username: username,
+          clothes: ["RTJdhJTgOhegZ7K9VLBa","Wyq9rdqXYqUXjgTWk5Fh","tqaJQq6sHqLDchudGXix"],
+          outfits: {
+              Lesley: {
+                  hats: {},
+                  glasses: {},
+                  overcoats: {},
+                  tops: {},
+                  bottoms: {},
+                  hosiery: {},
+                  shoes: {},
+                  dresses: {},
+              },
+              Tiva: {
+                  hats: {},
+                  glasses: {},
+                  overcoats: {},
+                  tops: {},
+                  bottoms: {},
+                  hosiery: {},
+                  shoes: {},
+                  dresses: {},
+              },
+          },
       });
       console.log("User created", response.data);
     } catch (error) {
