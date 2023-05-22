@@ -13,9 +13,19 @@ function Minigames() {
     newBoard[index] = player;
     setBoard(newBoard);
 
-    checkWinner(newBoard, player);
+    if (checkWinner(newBoard, player)) return;
 
-    setPlayer(player === "X" ? "O" : "X");
+    const emptyCells = newBoard
+        .map((value, pos) => [value, pos])
+        .filter(item => item[0] === null)
+        .map(item => item[1]);
+
+    const aiMove = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+
+    newBoard[aiMove] = player === "X" ? "O" : "X";
+    setBoard(newBoard);
+
+    checkWinner(newBoard, newBoard[aiMove]);
   };
 
   const checkWinner = (board, player) => {
@@ -34,13 +44,16 @@ function Minigames() {
       const [a, b, c] = winningCombinations[i];
       if (board[a] === player && board[b] === player && board[c] === player) {
         setWinner(player);
-        return;
+        return true;
       }
     }
 
     if (board.every((cell) => cell !== null)) {
       setWinner("draw");
+      return true;
     }
+
+    return false;
   };
 
   const handleReset = () => {
