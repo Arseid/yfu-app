@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Grid, Button } from "@mui/material";
+import UserDataContext from "../../context/UserDataContext";
+import axios from "axios";
+import UserContext from "../../context/UserContext";
 
 function Minigames() {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [player, setPlayer] = useState("X");
   const [winner, setWinner] = useState(null);
+  const user = useContext(UserContext);
+  const { userData, setUserData } = useContext(UserDataContext);
 
   const handleClick = (index) => {
     if (board[index] || winner) return;
@@ -44,6 +49,19 @@ function Minigames() {
       const [a, b, c] = winningCombinations[i];
       if (board[a] === player && board[b] === player && board[c] === player) {
         setWinner(player);
+
+        // If player 'X' wins, increment coins
+        if (player === 'X') {
+          const newCoins = userData["coins"] + 1;
+          setUserData(prevUserData => ({ ...prevUserData, coins: newCoins }));
+
+          // Update coins in the backend
+          axios.put(`http://localhost:5000/users/${user["uid"]}`, { coins: newCoins })
+              .catch((error) => {
+                console.error("Failed to update user's data:", error);
+              });
+        }
+
         return true;
       }
     }
@@ -90,7 +108,7 @@ function Minigames() {
           {winner === "draw" ? (
             <p>It's a draw!</p>
           ) : (
-            <p>Player {winner} wins!</p>
+            <p>You win! You gain a coin, you now have {userData["coins"]} coins! Good luck for your draws!</p>
           )}
           <Button variant="contained" onClick={handleReset}>
             Reset
