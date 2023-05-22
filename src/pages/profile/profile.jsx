@@ -3,9 +3,11 @@ import React from "react";
 import UserContext from "../../context/UserContext";
 import { useContext } from "react";
 import { OfflineBolt, Person } from "@mui/icons-material";
+import UserDataContext from "../../context/UserDataContext";
 
 const Profile = () => {
   const user = useContext(UserContext);
+  const {userData} = useContext(UserDataContext);
   return (
     <Stack spacing={3} justifyContent={"center"} alignItems={"center"}>
       <Box sx={{ fontSize: "4rem" }}>Your profile</Box>
@@ -28,7 +30,7 @@ const Profile = () => {
             textOverflow: "ellipsis",
           }}
         >
-          {user.displayName}
+            {userData["username"]}
         </Box>
         <Box
           sx={{
@@ -39,7 +41,7 @@ const Profile = () => {
             textOverflow: "ellipsis",
           }}
         >
-          #user.id
+          #{userData["user_id"]}
         </Box>
         <Box
           sx={{
@@ -93,7 +95,7 @@ const Profile = () => {
                 lineHeight: "3rem",
               }}
             >
-              450&nbsp;
+                {userData["coins"]}&nbsp;
             </Box>
             <OfflineBolt
               sx={{
