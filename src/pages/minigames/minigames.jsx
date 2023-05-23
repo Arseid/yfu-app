@@ -150,7 +150,7 @@ function Minigames() {
                 fullWidth
                 sx={{
                   position: "relative",
-                  bgcolor: index % 2 === 0 ? "#F7F" : "#FCE",
+                  bgcolor: index % 2 === 0 ? "#F7F" : "#FAF",
                   borderRadius: { xs: "1.5rem", sm: "2rem" },
                   border: "0.25rem solid #FFF",
                   height: "100%",
@@ -158,11 +158,11 @@ function Minigames() {
                   color: "white",
                   boxShadow: "none",
                   "&:hover": {
-                    bgcolor: index % 2 === 0 ? "#F7F" : "#FCE",
+                    bgcolor: index % 2 === 0 ? "#F7F" : "#FAF",
                     border: "none",
                   },
                   "&:disabled": {
-                    bgcolor: index % 2 === 0 ? "#F7F" : "#FCE",
+                    bgcolor: index % 2 === 0 ? "#F7F" : "#FAF",
                     border: "none",
                     color: "white",
                   },
