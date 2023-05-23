@@ -1,15 +1,13 @@
 import React from "react";
 
-const SpriteImage = ({ src }) => {
+const SpriteImage = ({ src, zIndex }) => {
   return (
     <img
       src={src}
       alt="character"
       height="98%"
-      sx={{
-        maxWidth: "100%",
-        height: "100%",
-        objectFit: "contain",
+      style={{
+        zIndex: zIndex
       }}
     />
   );

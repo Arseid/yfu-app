@@ -6,14 +6,14 @@ import ClothingPiece from "./clothes/ClothingSprite";
 const DressingView = ({ characterName, outfit, face }) => {
 
   const zIndexes = {
-    hats: 7,
-    glasses: 8,
-    tops: 6,
-    overcoats: 5,
-    bottoms: 4,
-    hosiery: 3,
-    shoes: 2,
-    dresses: 1,
+    hats: 9,
+    glasses: 4,
+    tops: 7,
+    overcoats: 8,
+    bottoms: 5,
+    hosiery: 2,
+    shoes: 3,
+    dresses: 6,
   };
 
 

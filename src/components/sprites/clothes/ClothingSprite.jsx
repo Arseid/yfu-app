@@ -26,7 +26,7 @@ const ClothingSprite = ({ cloth, face = 'front', zIndex }) => {
   return (
       <SpriteImage
           src={sprite}
-          style={{ zIndex }}
+          zIndex={ zIndex }
       />
   );
 };
